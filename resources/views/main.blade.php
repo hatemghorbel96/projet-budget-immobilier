@@ -5,7 +5,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <meta charset="utf-8">
-    <title>Finder | Real Estate | Home v.1</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <!-- SEO Meta Tags-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
@@ -22,6 +22,16 @@
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
     <!-- Page loading styles-->
+   
+    <!-- Page loading scripts-->
+  
+    <!-- Vendor Styles-->
+    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.css')}}"/>
+    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.css')}}"/>
+    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/tiny-slider/dist/tiny-slider.css')}}"/>
+    <!-- Main Theme Styles + Bootstrap-->
+    <link rel="stylesheet" media="screen" href="{{asset('front/assets/css/theme.min.css')}}">
+    <!-- Google Tag Manager-->
     <style>
       .page-loading {
         position: fixed;
@@ -89,27 +99,6 @@
       }
       
     </style>
-    <!-- Page loading scripts-->
-    <script>
-      (function () {
-        window.onload = function () {
-          var preloader = document.querySelector('.page-loading');
-          preloader.classList.remove('active');
-          setTimeout(function () {
-            preloader.remove();
-          }, 2000);
-        };
-      })();
-      
-    </script>
-    <!-- Vendor Styles-->
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.css')}}"/>
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.css')}}"/>
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/tiny-slider/dist/tiny-slider.css')}}"/>
-    <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/css/theme.min.css')}}">
-    <!-- Google Tag Manager-->
-   
   </head>
   <!-- Body-->
   <body>
@@ -143,6 +132,18 @@
     <script src="{{asset('front/assets/vendor/tiny-slider/dist/min/tiny-slider.js')}}"></script>
     <!-- Main theme script-->
     <script src="{{asset('front/assets/js/theme.min.js')}}"></script>
+    <script>
+      (function () {
+        window.onload = function () {
+          var preloader = document.querySelector('.page-loading');
+          preloader.classList.remove('active');
+          setTimeout(function () {
+            preloader.remove();
+          }, 2000);
+        };
+      })();
+      
+    </script>
   </body>
 
 
