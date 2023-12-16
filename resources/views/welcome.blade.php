@@ -156,7 +156,7 @@
             </div>
             <div class="card-body position-relative pb-3">
               <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For sale</h4>
-              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">Family Home| 120 sq.m</a></h3>
+              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">Family Dashboard| 120 sq.m</a></h3>
               <p class="mb-2 fs-sm text-muted">67-04 Myrtle Ave Glendale, NY 11385</p>
               <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>$84,000</div>
             </div>
