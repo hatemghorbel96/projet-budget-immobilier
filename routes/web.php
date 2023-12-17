@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PropertieController;
 use App\Http\Controllers\backend\RoleController;
 
 /*
@@ -66,5 +67,11 @@ Route::controller(RoleController::class)->group(function(){
  Route::post('/admin/roles/update/{id}' , 'AdminRolesUpdate')->name('admin.roles.update');
  Route::get('/admin/delete/roles/{id}' , 'AdminRolesDelete')->name('admin.delete.roles');
    });
+
+
+    Route::get('/properties', [PropertieController::class, 'index'])->name('properties.index');
+    Route::get('/properties/create', [PropertieController::class, 'create'])->name('properties.create');
+    Route::post('/properties', [PropertieController::class, 'store'])->name('properties.store');
+
    
 require __DIR__.'/auth.php';
