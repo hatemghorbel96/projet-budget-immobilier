@@ -17,4 +17,14 @@ class Propertie extends Model
     {
         return $this->hasMany(ImagePropertie::class);
     }
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class);
+    }
+
+    public function bientype()
+    {
+        return $this->belongsTo(Bientype::class);
+    }
 }
