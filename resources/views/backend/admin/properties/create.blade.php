@@ -21,11 +21,11 @@
             </div>
             <div class="form-group">
                 <label for="title">surface:</label>
-                <input type="text" name="surface" class="form-control" required>
+                <input type="number" name="surface" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="title">budget:</label>
-                <input type="text" name="budget" class="form-control" required>
+                <input type="number" name="budget" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="location_id">Location:</label>
