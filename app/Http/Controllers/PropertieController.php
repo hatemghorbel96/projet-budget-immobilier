@@ -12,8 +12,8 @@ use Illuminate\Http\Request;
 
 use App\Models\ImagePropertie;
 use App\Http\Controllers\Controller;
-use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class PropertieController extends Controller
 {
@@ -34,21 +34,35 @@ class PropertieController extends Controller
     
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
-                $makeName = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-                
-                
-                $resizedImage = Image::make($image)->resize(800, 800)->encode();
 
-            
-                $uploadPath = 'upload/multi-image/' . $makeName;
-                Storage::put($uploadPath, $resizedImage, 'public');
+            $make_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(800, 800)->save('upload/multi-image/' . $make_name);
+            $uploadPath = 'upload/multi-image/' . $make_name;
 
-                
-                ImagePropertie::create([
-                    'propertie_id' => $property->id, 
+            ImagePropertie::insert([
+
+                    'propertie_id' => $property->id,
                     'path' => $uploadPath,
-                    'created_at' => Carbon::now(),
-                ]);
+                    'created_at' => now(),
+
+
+            ]);
+                /* $makeName = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+    
+              
+                $resizedImage = Image::make($image)->resize(800, 400);
+    
+              
+                $uploadPath = $image->storeAs('upload/multi-image', $makeName, 'public');
+    
+                
+                Storage::put($uploadPath, $resizedImage, 'public');
+    
+                ImagePropertie::create([
+                    'propertie_id' => $property->id,
+                    'path' => $uploadPath,
+                    'created_at' => now(),
+                ]); */
             }
         }
 

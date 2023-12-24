@@ -20,6 +20,14 @@
                 <input type="text" name="purchase_type" class="form-control" required>
             </div>
             <div class="form-group">
+                <label for="for">Sale/Rent:</label>
+                <select name="for" class="form-control" required>
+                    <option value="sale">Sale</option>
+                    <option value="rent">Rent</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
                 <label for="title">surface:</label>
                 <input type="number" name="surface" class="form-control" required>
             </div>
