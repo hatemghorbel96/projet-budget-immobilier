@@ -48,10 +48,10 @@
             </ul>
           </li> --}}
           <!-- Menu items-->
-          <li class="nav-item dropdown active"><a class="nav-link " href="#" role="button" >Acheter</a>
+          <li class="nav-item dropdown active"><a class="nav-link " href="{{route('bien.index','sale')}}" role="button" >Acheter</a>
           </li>
 
-          <li class="nav-item dropdown "><a class="nav-link " href="#" role="button" >louer</a>
+          <li class="nav-item dropdown "><a class="nav-link " href="{{route('bien.index','rent')}}" role="button" >louer</a>
           </li>
 
 

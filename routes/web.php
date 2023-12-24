@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertieController;
+use App\Http\Controllers\backend\BienController;
 use App\Http\Controllers\backend\RoleController;
 
 /*
@@ -16,6 +17,9 @@ use App\Http\Controllers\backend\RoleController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//bien
+Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index');
 
 Route::get('/', function () {
     return view('welcome');
