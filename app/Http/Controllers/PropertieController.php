@@ -69,4 +69,6 @@ class PropertieController extends Controller
        /*  return redirect()->route('properties.index')->with('success', 'Property created successfully.'); */
        return redirect()->back()->with('success', 'Property created successfully.');
     }
+
+   
 }

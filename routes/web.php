@@ -20,7 +20,7 @@ use App\Http\Controllers\backend\RoleController;
 
 //bien
 Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index');
-
+Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show');
 Route::get('/', function () {
     return view('welcome');
 });
