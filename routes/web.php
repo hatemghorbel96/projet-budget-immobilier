@@ -22,9 +22,12 @@ use App\Http\Controllers\backend\ContactController;
 
 //bien
 Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index');
+Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show');
+
 
 //contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
 
 Route::get('/', function () {
     return view('welcome');

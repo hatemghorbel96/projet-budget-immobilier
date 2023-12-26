@@ -13,4 +13,12 @@ class BienController extends Controller
 
         return view('front.bien.listbien', compact('properties'));
     }
+
+
+    public function show($id){
+        $p = Propertie::findOrFail($id);  
+        $otherProperties = Propertie::with('images')->where('id', '!=', $id)->get();
+
+        return view('front.bien.view', compact('p', 'otherProperties'));
+    }
 }

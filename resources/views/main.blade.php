@@ -26,11 +26,14 @@
     <!-- Page loading scripts-->
   
     <!-- Vendor Styles-->
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.css')}}"/>
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.css')}}"/>
+    <link rel="preload" href="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/tiny-slider/dist/tiny-slider.css')}}"/>
     <!-- Main Theme Styles + Bootstrap-->
-    <link rel="stylesheet" media="screen" href="{{asset('front/assets/css/theme.min.css')}}">
+
+    <link rel="preload" href="{{asset('front/assets/vendor/lightgallery/css/lightgallery-bundle.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('front/assets/vendor/flatpickr/dist/flatpickr.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{asset('front/assets/css/theme.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <!-- Google Tag Manager-->
     <style>
       .page-loading {
@@ -131,19 +134,31 @@
     <script src="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/tiny-slider/dist/min/tiny-slider.js')}}"></script>
     <!-- Main theme script-->
+
+
+
+
+    <script src="{{asset('front/assets/vendor/lightgallery/lightgallery.min.js')}}"></script>
+    <script src="{{asset('front/assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js')}}"></script>
+    <script src="{{asset('front/assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js')}}"></script>
+    <script src="{{asset('front/assets/vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js')}}"></script>
+    <script src="{{asset('front/assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+
+
+
     <script src="{{asset('front/assets/js/theme.min.js')}}"></script>
     <script>
       (function () {
-        window.onload = function () {
+        window.addEventListener('load', function () {
           var preloader = document.querySelector('.page-loading');
           preloader.classList.remove('active');
           setTimeout(function () {
             preloader.remove();
-          }, 2000);
-        };
+          }, 200); // Adjust the timeout as needed
+        });
       })();
-      
     </script>
+    
   </body>
 
 
