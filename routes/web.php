@@ -6,6 +6,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PropertieController;
 use App\Http\Controllers\backend\BienController;
 use App\Http\Controllers\backend\RoleController;
+use App\Http\Controllers\backend\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,12 @@ use App\Http\Controllers\backend\RoleController;
 //bien
 Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index');
 Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show');
+
+
+//contact
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,7 +45,7 @@ Route::middleware('auth')->group(function () {
 });
 
 
-// Permission All Route 
+// Permission All Route
 Route::controller(RoleController::class)->group(function(){
 
     Route::get('/all/permission' , 'AllPermission')->name('all.permission');
@@ -50,7 +58,7 @@ Route::controller(RoleController::class)->group(function(){
     Route::get('/delete/permission/{id}' , 'DeletePermission')->name('delete.permission');
    });
 
-   // Roles All Route 
+   // Roles All Route
 Route::controller(RoleController::class)->group(function(){
 
     Route::get('/all/roles' , 'AllRoles')->name('all.roles');
@@ -60,7 +68,7 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/update/roles' , 'UpdateRoles')->name('update.roles');
     Route::get('/delete/roles/{id}' , 'DeleteRoles')->name('delete.roles');
 
- // add role permission 
+ // add role permission
 
  Route::get('/add/roles/permission' , 'AddRolesPermission')->name('add.roles.permission');
  Route::post('/role/permission/store' , 'RolePermissionStore')->name('role.permission.store');
@@ -77,5 +85,5 @@ Route::controller(RoleController::class)->group(function(){
     Route::get('/properties/create', [PropertieController::class, 'create'])->name('properties.create');
     Route::post('/properties', [PropertieController::class, 'store'])->name('properties.store');
 
-   
+
 require __DIR__.'/auth.php';
