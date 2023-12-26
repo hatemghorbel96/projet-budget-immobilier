@@ -1,5 +1,5 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
-    <div class="container"><a class="navbar-brand me-3 me-xl-4" href="real-estate-home-v1.html"><img class="d-block" src="{{asset('front/assets/img/logo/logo-dark.svg')}}" width="116" alt="Finder"></a>
+    <div class="container"><a class="navbar-brand me-3 me-xl-4" href="real-estate-home-v1.html"><img class="d-block" src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="60" alt="budget immobilier"></a>
      
      
      
