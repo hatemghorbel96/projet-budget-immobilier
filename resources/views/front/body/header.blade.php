@@ -1,10 +1,10 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
     <div class="container"><a class="navbar-brand me-3 me-xl-4" href="real-estate-home-v1.html"><img class="d-block" src="{{asset('front/assets/img/logo/logo-dark.svg')}}" width="116" alt="Finder"></a>
-     
-     
-     
+
+
+
       @auth
-      
+
       <button class="navbar-toggler ms-auto mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3"><a class="d-block py-2" href="real-estate-account-info.html"><img class="rounded-circle" src="img/avatars/30.jpg" width="40" alt="Annette Black"></a>
         <div class="dropdown-menu dropdown-menu-end">
@@ -18,16 +18,16 @@
         </div>
       </div>
       <a class="btn btn-primary btn-sm ms-2 order-lg-3 mx-2" href="real-estate-add-property.html"><i class="fi-plus me-2"></i>Add<span class='d-none d-sm-inline'> property</span></a>
-      @else   
-      
-     
-        <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="{{ route('login') }}" ><i class="fi-user me-2"></i>Sign in</a>
-      
-   
-        <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="{{ route('register') }}" ><i class="fi-user me-2"></i>Sign up</a>
-      @endauth 
-      
-     
+      @else
+
+
+        <a class="btn btn-sm text-primary d-none d-lg-block order-lg-3" href="{{ route('login') }}" ><i class="fi-user me-2"></i>Se connecter</a>
+
+
+
+      @endauth
+
+
 
       <div class="collapse navbar-collapse order-lg-2" id="navbarNav">
         <ul class="navbar-nav navbar-nav-scroll" style="max-height: 35rem;">
@@ -51,8 +51,10 @@
           <li class="nav-item dropdown active"><a class="nav-link " href="{{route('bien.index','sale')}}" role="button" >Acheter</a>
           </li>
 
-          <li class="nav-item dropdown "><a class="nav-link " href="{{route('bien.index','rent')}}" role="button" >louer</a>
+          <li class="nav-item dropdown "><a class="nav-link " href="{{route('bien.index','rent')}}" role="button" >Louer</a>
           </li>
+            <li class="nav-item dropdown "><a class="nav-link " href="{{route('contact.index')}}" role="button" >Contact</a>
+            </li>
 
 
 
@@ -100,7 +102,7 @@
           </li> --}}
           <li class="nav-item d-lg-none"><a class="nav-link" href="#signin-modal" data-bs-toggle="modal"><i class="fi-user me-2"></i>Sign in</a></li>
 
-          
+
         </ul>
       </div>
     </div>
