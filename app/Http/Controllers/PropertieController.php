@@ -17,6 +17,10 @@ use Intervention\Image\Facades\Image;
 
 class PropertieController extends Controller
 {
+    public function index() {
+
+        return view('backend.admin.properties.index');
+    }
 
     public function create()
     {
@@ -28,10 +32,10 @@ class PropertieController extends Controller
 
     public function store(Request $request)
     {
-   
+
         $property = Propertie::create($request->except('images'));
 
-    
+
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
 
@@ -48,16 +52,16 @@ class PropertieController extends Controller
 
             ]);
                 /* $makeName = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-    
-              
+
+
                 $resizedImage = Image::make($image)->resize(800, 400);
-    
-              
+
+
                 $uploadPath = $image->storeAs('upload/multi-image', $makeName, 'public');
-    
-                
+
+
                 Storage::put($uploadPath, $resizedImage, 'public');
-    
+
                 ImagePropertie::create([
                     'propertie_id' => $property->id,
                     'path' => $uploadPath,
@@ -70,5 +74,5 @@ class PropertieController extends Controller
        return redirect()->back()->with('success', 'Property created successfully.');
     }
 
-   
+
 }
