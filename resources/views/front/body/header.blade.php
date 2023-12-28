@@ -1,25 +1,27 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top" data-scroll-header>
 
     <div class="container"><a class="navbar-brand me-3 me-xl-4" href="real-estate-home-v1.html"><img class="d-block" src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="60" alt="budget immobilier"></a>
-     
-     
-     
+
+
+
 
       @auth
 
       <button class="navbar-toggler ms-auto mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3"><a class="d-block py-2" href="real-estate-account-info.html"><img class="rounded-circle" src="img/avatars/30.jpg" width="40" alt="Annette Black"></a>
+      <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3"><a class="d-block py-2" href="real-estate-account-info.html"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/30.jpg')}}" width="40" alt="Annette Black"></a>
         <div class="dropdown-menu dropdown-menu-end">
-          <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;"><img class="rounded-circle" src="img/avatars/03.jpg" width="48" alt="Annette Black">
+          <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/30.jpg')}}" width="48" alt="Annette Black">
             <div class="ps-2">
-              <h6 class="fs-base mb-0">Annette Black</h6><span class="star-rating star-rating-sm"><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i><i class="star-rating-icon fi-star-filled active"></i></span>
+              <h6 class="fs-base mb-0">Annette Black</h6>
               <div class="fs-xs py-2">(302) 555-0107<br>annette_black@email.com</div>
             </div>
-          </div><a class="dropdown-item" href="real-estate-account-info.html"><i class="fi-user opacity-60 me-2"></i>Personal Info</a><a class="dropdown-item" href="real-estate-account-security.html"><i class="fi-lock opacity-60 me-2"></i>Password &amp; Security</a><a class="dropdown-item" href="real-estate-account-properties.html"><i class="fi-home opacity-60 me-2"></i>My Properties</a><a class="dropdown-item" href="real-estate-account-wishlist.html"><i class="fi-heart opacity-60 me-2"></i>Wishlist</a><a class="dropdown-item" href="real-estate-account-reviews.html"><i class="fi-star opacity-60 me-2"></i>Reviews</a><a class="dropdown-item" href="real-estate-account-notifications.html"><i class="fi-bell opacity-60 me-2"></i>Notifications</a>
-          <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('user.logout') }}" >Sign Out</a>
+          </div>
+            <a class="dropdown-item" href="{{ route('dashboard') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
+            <a class="dropdown-item" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
+          <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('user.logout') }}" >Déconnexion</a>
         </div>
       </div>
-      <a class="btn btn-primary btn-sm ms-2 order-lg-3 mx-2" href="real-estate-add-property.html"><i class="fi-plus me-2"></i>Add<span class='d-none d-sm-inline'> property</span></a>
+      <a class="btn btn-primary btn-sm ms-2 order-lg-3 mx-2" href="{{route('properties.create')}}"><i class="fi-plus me-2"></i>Ajouter Bien<span class='d-none d-sm-inline'></span></a>
       @else
 
 
