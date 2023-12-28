@@ -1,9 +1,4 @@
 @extends('main')
-
-
-
-
-
 <main class="page-wrapper">
     <!-- Page content-->
     <div class="container-fluid d-flex h-100 align-items-center justify-content-center py-4 py-sm-5">
