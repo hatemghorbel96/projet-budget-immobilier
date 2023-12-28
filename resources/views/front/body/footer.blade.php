@@ -1,8 +1,10 @@
 <footer class="footer pt-lg-5 pt-4 bg-dark text-light">
     <div class="container mb-4 py-4 pb-lg-5">
         <div class="row gy-4">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <div class="mb-4 pb-sm-3"><a class="d-inline-block" href="city-guide-home-v1.html"><img src="{{asset('front/assets/img/logo/logo-light.svg')}}" width="116" alt="Logo"></a></div>
+
+            <div class="col-lg-3 col-md-6 col-sm-4">
+                <div class="mb-4 pb-sm-3"><a class="d-inline-block" href="city-guide-home-v1.html"><img src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="116" alt="Logo"></a></div>
+
                 <ul class="nav nav-light flex-column">
                     <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal text-light text-nowrap" href="mailto:budgetimmobilier.hammamet@gmail.com"><i class="fi-mail mt-n1 me-1 align-middle text-primary"></i>budgetimmobilier.hammamet@gmail.com</a></li>
                     <li class="nav-item mb-2"><a class="nav-link p-0 fw-normal text-light text-nowrap" href="tel:4065550120"><i class="fi-device-mobile mt-n1 me-1 align-middle text-primary"></i>(406) 555-0120</a></li>
