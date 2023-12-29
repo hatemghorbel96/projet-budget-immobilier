@@ -250,9 +250,7 @@
         <div class="tns-carousel-inner row gx-4 mx-0 pt-3 pb-4"
             data-carousel-options="{&quot;items&quot;: 4, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;992&quot;:{&quot;items&quot;:4}}}">
             @foreach($otherProperties as $po)
-            @php
-                $firstImage = $po->images->first();
-            @endphp
+            
         
             <div class="col">
                 <div class="card shadow-sm card-hover border-0 h-100">
@@ -268,6 +266,9 @@
                                 <i class="fi-heart"></i>
                             </button>
                         </div>
+                        @php
+                $firstImage = $po->images->first();
+            @endphp
                         <img src="{{ asset($firstImage->path) }}" alt="Image">
                     </div>
                     <div class="card-body position-relative pb-3">

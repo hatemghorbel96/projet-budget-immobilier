@@ -16,7 +16,8 @@ class BienController extends Controller
 
 
     public function show($id){
-        $p = Propertie::findOrFail($id);  
+        $p = Propertie::with('images')->findOrFail($id);  
+       /*  dd($p); */
         $otherProperties = Propertie::with('images')->where('id', '!=', $id)->get();
 
         return view('front.bien.view', compact('p', 'otherProperties'));

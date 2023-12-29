@@ -32,16 +32,16 @@ class PropertieController extends Controller
 
     public function store(Request $request)
     {
-
+       /*  dd($request->all()); */
         $property = Propertie::create($request->except('images'));
-
+       
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
 
             $make_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(800, 800)->save('upload/multi-image/' . $make_name);
-            $uploadPath = 'upload/multi-image/' . $make_name;
+            $uploadPath = 'upload/multi-image/' .$make_name;
 
             ImagePropertie::insert([
 

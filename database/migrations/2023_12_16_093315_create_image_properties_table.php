@@ -20,7 +20,7 @@ return new class extends Migration
                     ->references('id')
                     ->on('properties')
                     ->onUpdate('cascade')
-                    ->onDelete('set null');
+                    ->onDelete('cascade');
 
             $table->timestamps();
         });
