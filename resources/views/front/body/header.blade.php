@@ -8,15 +8,15 @@
       @auth
 
       <button class="navbar-toggler ms-auto mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-      <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3"><a class="d-block py-2" href="real-estate-account-info.html"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/30.jpg')}}" width="40" alt="Annette Black"></a>
+      <div class="dropdown d-none d-lg-block order-lg-3 my-n2 me-3"><a class="d-block py-2" href="real-estate-account-info.html"><img class="rounded-circle" src="{{ asset(auth()->user()->image ? auth()->user()->image : '/empty.webp') }}" width="40" alt="Annette Black"></a>
         <div class="dropdown-menu dropdown-menu-end">
-          <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/30.jpg')}}" width="48" alt="Annette Black">
+          <div class="d-flex align-items-start border-bottom px-3 py-1 mb-2" style="width: 16rem;"><img class="rounded-circle" src="{{ asset(auth()->user()->image ? auth()->user()->image : '/empty.webp') }}" width="48" alt="Annette Black">
             <div class="ps-2">
-              <h6 class="fs-base mb-0">Annette Black</h6>
-              <div class="fs-xs py-2">(302) 555-0107<br>annette_black@email.com</div>
+              <h6 class="fs-base mb-0">{{ auth()->user()->name }}</h6>
+              <div class="fs-xs py-2">{{ auth()->user()->telephone }}<br>{{ auth()->user()->email }}</div>
             </div>
           </div>
-            <a class="dropdown-item" href="{{ route('dashboard') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
+            <a class="dropdown-item" href="{{ route('infoperso') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
             <a class="dropdown-item" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
           <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('user.logout') }}" >Déconnexion</a>
         </div>

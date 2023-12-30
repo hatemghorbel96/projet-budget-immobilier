@@ -31,13 +31,17 @@ Route::post('/contact/store', [ContactController::class, 'store'])->name('contac
 Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.index');
 
 
+//userinfo
+Route::get('/update-profile', [ProfileController::class, 'infoperso'])->name('infoperso');
+Route::put('/save-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
+/* Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); */
 
 Route::middleware('auth')->group(function () {
     Route::get('/user/logout', [UserController::class, 'UserLogout'])->name('user.logout');
