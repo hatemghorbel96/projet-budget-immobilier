@@ -12,8 +12,9 @@ use Illuminate\Http\Request;
 
 use App\Models\ImagePropertie;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 class PropertieController extends Controller
 {
@@ -36,8 +37,13 @@ class PropertieController extends Controller
     public function store(Request $request)
     {
        /*  dd($request->all()); */
-        $property = Propertie::create($request->except('images'));
+       $user_id = auth()->id(); 
+        
        
+       $data = $request->except('images');
+       $data['user_id'] = $user_id;
+
+       $property = Propertie::create($data);
 
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {

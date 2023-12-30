@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
+use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -56,5 +59,53 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function infoperso(){
+
+        return view('backend.admin.user.dashboard');
+    }
+
+
+    public function updateProfile(Request $request)
+    {
+        
+        $userid = Auth::user()->id;
+        $user = Auth::user();
+    
+        $validatedData = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|max:255',
+        'telephone' => 'nullable|string|max:20',
+        'address' => 'nullable|string|max:255',
+        
+        ]);
+
+   
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(800, 800)->save('upload/user/' . $name_gen);
+            $save_url = 'upload/user/' . $name_gen;
+    
+           
+            if ($user->image) {
+                Storage::delete($user->image);
+            }
+    
+            User::where('id',$userid)->update([               
+                'image' => $save_url,
+            ]);
+          
+        }
+
+        User::where('id',$userid)->update([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'telephone' => $validatedData['telephone'],
+            'address' => $validatedData['address'],
+        ]);
+
+        return redirect()->back()->with('success', 'Profile information updated successfully.');
     }
 }

@@ -299,3 +299,14 @@
 </section>
 
 </main>
+
+
+<script src="{{ asset('front/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/simplebar/dist/simplebar.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/lightgallery/lightgallery.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/flatpickr/dist/flatpickr.min.js') }}"></script>
+<script src="{{ asset('front/assets/vendor/tiny-slider/dist/min/tiny-slider.js') }}"></script>
