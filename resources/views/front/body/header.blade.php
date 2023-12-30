@@ -57,7 +57,7 @@
 
           <li class="nav-item dropdown "><a class="nav-link " href="{{route('bien.index','rent')}}" role="button" >Louer</a>
           </li>
-            <li class="nav-item dropdown "><a class="nav-link " href="{{route('contact.index')}}" role="button" >Contact</a>
+            <li class="nav-item dropdown "><a class="nav-link " href="{{route('contact.send')}}" role="button" >Contact</a>
             </li>
 
 

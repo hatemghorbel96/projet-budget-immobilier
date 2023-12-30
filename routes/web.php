@@ -26,7 +26,9 @@ Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show'
 
 
 //contact
-Route::get('/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::get('/contact', [ContactController::class, 'contact'])->name('contact.send');
+Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.index');
 
 
 Route::get('/', function () {

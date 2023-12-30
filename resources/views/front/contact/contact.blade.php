@@ -10,6 +10,11 @@
 </div>
 <!-- Hero-->
 <section class="container mb-5 pb-2 pb-md-4 pb-lg-5">
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
     <div class="row align-items-md-start align-items-center gy-4">
         <div class="col-lg-5 col-md-6">
             <div class="mx-md-0 mx-auto mb-md-5 mb-4 pb-md-4 text-md-start text-center" style="max-width: 416px;">
@@ -20,21 +25,33 @@
         <div class="col-md-6 offset-lg-1">
             <div class="card border-0 bg-secondary p-sm-3 p-2">
                 <div class="card-body m-1">
-                    <form class="needs-validation" novalidate>
+                    <form class="needs-validation" novalidate action="{{ route('contact.store') }}" method="post">
+                        @csrf
                         <div class="mb-4">
-                            <label class="form-label" for="c-name">Nom complet</label>
-                            <input class="form-control form-control-lg" id="c-name" type="text" required>
-                            <div class="invalid-tooltip mt-1">S'il vous plaît, saisissez votre nom.</div>
+                            <label class="form-label" for="name">Nom complet</label>
+                            <input class="form-control form-control-lg @error('name') is-invalid @enderror" id="name" name="name" type="text" value="{{ old('name') }}" required>
+                            @error('name')
+                                <div class="invalid-tooltip mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="c-email">Votre adresse e-mail</label>
-                            <input class="form-control form-control-lg" id="c-email" type="email" required>
+                            <label class="form-label" for="c-email">Votre adresse e-mail (Optional)</label>
+                            <input class="form-control form-control-lg" name="email" id="c-email" type="email" required>
                             <div class="invalid-tooltip mt-1">S'il vous plaît, saisissez votre adresse e-mail.</div>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label" for="c-message">Message</label>
-                            <textarea class="form-control form-control-lg" id="c-message" rows="4"  required></textarea>
-                            <div class="invalid-tooltip mt-1">S'il vous plaît, saisissez votre message.</div>
+                            <label class="form-label" for="telephone">Numéro de téléphone</label>
+                            <input class="form-control form-control-lg @error('telephone') is-invalid @enderror" id="telephone" name="telephone" type="tel" value="{{ old('telephone') }}" required>
+                            @error('telephone')
+                                <div class="invalid-tooltip mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="message">Message</label>
+                            <textarea class="form-control form-control-lg @error('message') is-invalid @enderror" id="message" name="message" rows="4" required>{{ old('message') }}</textarea>
+                            @error('message')
+                                <div class="invalid-tooltip mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         <div class="pt-sm-2 pt-1">
                             <button class="btn btn-lg btn-primary w-sm-auto w-100" type="submit">Envoyer</button>
