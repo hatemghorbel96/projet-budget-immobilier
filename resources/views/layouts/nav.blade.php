@@ -11,10 +11,14 @@
             </div>
         </div><a class="btn btn-primary btn-lg w-100 mb-3" href="{{route('properties.create')}}"><i class="fi-plus me-2"></i>Ajouter bien</a><a class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav" data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>Menu</a>
         <div class="collapse d-md-block mt-3" id="account-nav">
+            @php
+                $route = Route::current()->getName();
+            @endphp
             <div class="card-nav">
-                <a class="card-nav-link active" href="{{ route('dashboard') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
-                <a class="card-nav-link" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
-                <a class="card-nav-link" href="{{ route('user.logout') }}"><i class="fi-logout opacity-60 me-2"></i>Déconnexion</a></div>
+                <a class="card-nav-link {{ ($route ==  'dashboard')? 'active':  '' }}" href="{{ route('dashboard') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
+                <a class="card-nav-link {{ ($route ==  'properties.index')? 'active':  '' }}" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
+                <a class="card-nav-link {{ ($route ==  'contact.index')? 'active':  '' }}" href="{{ route('contact.index') }}"><i class="fi-mail opacity-60 me-2"></i>Contacts</a>
+                <a class="card-nav-link " href="{{ route('user.logout') }}"><i class="fi-logout opacity-60 me-2"></i>Déconnexion</a></div>
         </div>
     </div>
 </aside>

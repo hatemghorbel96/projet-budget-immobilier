@@ -19,7 +19,10 @@ class PropertieController extends Controller
 {
     public function index() {
 
-        return view('backend.admin.properties.index');
+        $properties = Propertie::with('images')->get();
+
+       
+        return view('backend.admin.properties.index',compact('properties'));
     }
 
     public function create()

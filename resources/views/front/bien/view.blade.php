@@ -131,38 +131,36 @@
             <div class="mb-4 pb-md-3">
                 <h3 class="h4">Property Details</h3>
                 <ul class="list-unstyled mb-0">
-                    <li><b>Type: </b>apartment</li>
-                    <li><b>Apartment area: </b>56 sq.m</li>
+                    <li><b>Type: </b>{{$p->bientype->name}}</li>
+                    <li><b>Apartment area: </b>{{$p->surface}}</li>
                     <li><b>Built: </b>2015</li>
                     <li><b>Bedrooms: </b>4</li>
-                    <li><b>Bathrooms: </b>2</li>
-                    <li><b>Parking places: </b>2</li>
-                    <li><b>Pets allowed: </b>cats only</li>
+                    <li><b>Bathrooms: </b>{{$p->bathrooms}}</li>
+                    <li><b>Parking places: </b>{{$p->parking}}</li>
+                  {{--   <li><b>Pets allowed: </b>cats only</li> --}}
                 </ul>
             </div>
             <!-- Amenities-->
             <div class="mb-4 pb-md-3">
                 <h3 class="h4">Amenities</h3>
                 <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
-                    <li class="col"><i class="fi-wifi mt-n1 me-2 fs-lg align-middle"></i>WiFi</li>
+               
                     <li class="col"><i class="fi-thermometer mt-n1 me-2 fs-lg align-middle"></i>Heating</li>
-                    <li class="col"><i class="fi-dish mt-n1 me-2 fs-lg align-middle"></i>Dishwasher</li>
+                    @if ($p->parking != 0 || $p->parking != null)
                     <li class="col"><i class="fi-parking mt-n1 me-2 fs-lg align-middle"></i>Parking place</li>
+                    @endif
                     <li class="col"><i class="fi-snowflake mt-n1 me-2 fs-lg align-middle"></i>Air conditioning</li>
-                    <li class="col"><i class="fi-iron mt-n1 me-2 fs-lg align-middle"></i>Iron</li>
-                    <li class="col"><i class="fi-tv mt-n1 me-2 fs-lg align-middle"></i>TV</li>
-                    <li class="col"><i class="fi-laundry mt-n1 me-2 fs-lg align-middle"></i>Laundry</li>
+     
+                    <li class="col"><i class="fi-swimming-pool mt-n1 me-2 fs-lg align-middle"></i>Swimming pool
+                    </li>
+            
                     <li class="col"><i class="fi-cctv mt-n1 me-2 fs-lg align-middle"></i>Security cameras</li>
                 </ul>
-                <div class="collapse" id="seeMoreAmenities">
-                    <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
-                        <li class="col"><i class="fi-no-smoke mt-n1 me-2 fs-lg align-middle"></i>No smocking</li>
-                        <li class="col"><i class="fi-pet mt-n1 me-2 fs-lg align-middle"></i>Cats</li>
-                        <li class="col"><i class="fi-swimming-pool mt-n1 me-2 fs-lg align-middle"></i>Swimming pool
-                        </li>
-                        <li class="col"><i class="fi-double-bed mt-n1 me-2 fs-lg align-middle"></i>Double bed</li>
-                        <li class="col"><i class="fi-bed mt-n1 me-2 fs-lg align-middle"></i>Single bed</li>
-                    </ul>
+              
+                  
+                      
+                   
+                 
                 </div><a class="collapse-label collapsed" href="#seeMoreAmenities" data-bs-toggle="collapse"
                     data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button"
                     aria-expanded="false" aria-controls="seeMoreAmenities"></a>
@@ -170,9 +168,9 @@
             <!-- Post meta-->
             <div class="mb-lg-5 mb-md-4 pb-lg-2 py-4 border-top">
                 <ul class="d-flex mb-4 list-unstyled fs-sm">
-                    <li class="me-3 pe-3 border-end">Published: <b>Dec 9, 2020</b></li>
-                    <li class="me-3 pe-3 border-end">Ad number: <b>681013232</b></li>
-                    <li class="me-3 pe-3">Views: <b>48</b></li>
+                    <li class="me-3 pe-3 border-end">Published: <b>{{$p->created_at}}</b></li>
+                    <li class="me-3 pe-3 border-end">Ad number: <b>Bien{{$p->id}}</b></li>
+                    <li class="me-3 pe-3">Views: <b>{{$p->views}}</b></li>
                 </ul>
             </div>
            
@@ -267,8 +265,8 @@
                             </button>
                         </div>
                         @php
-                $firstImage = $po->images->first();
-            @endphp
+                            $firstImage = $po->images->first();
+                        @endphp
                         <img src="{{ asset($firstImage->path) }}" alt="Image">
                     </div>
                     <div class="card-body position-relative pb-3">
