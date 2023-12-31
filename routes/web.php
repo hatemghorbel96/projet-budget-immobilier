@@ -24,6 +24,7 @@ use App\Http\Controllers\backend\ContactController;
 //bien
 Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index');
 Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show');
+Route::get('pagination/fetch_data', [BienController::class, 'getwithajax'])->name('ajax.pagination.fetch');
 
 
 //contact
