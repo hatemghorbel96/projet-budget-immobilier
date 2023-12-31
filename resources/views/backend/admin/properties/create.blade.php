@@ -1,5 +1,5 @@
 @extends('main')
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {{-- <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.css')}}"/>
 <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/leaflet/dist/leaflet.css')}}"/>
 <link rel="stylesheet" media="screen" href="{{asset('front/assets/vendor/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css')}}"/>
@@ -59,17 +59,7 @@
             <section class="card card-body border-0 shadow-sm p-4 mb-4" id="location">
                 <h2 class="h4 mb-4"><i class="fi-map-pin text-primary fs-5 mt-n1 me-2"></i>Location</h2>
                 <div class="row">
-                    {{-- <div class="col-sm-6 mb-3">
-                        <label class="form-label" for="ap-country">Pays / région <span class="text-danger">*</span></label>
-                        <select class="form-select" id="ap-country" required>
-                            <option value="" disabled>choisir pays</option>
-                            <option value="Australia">Australia</option>
-                            <option value="Belgium">Belgium</option>
-                            <option value="Canada">Canada</option>
-                            <option value="Germany">Germany</option>
-                            <option value="United States" selected>United States</option>
-                        </select>
-                    </div> --}}
+                   
                     <div class="col-sm-12 mb-3">
                         <label class="form-label" for="ap-city">Ville <span class="text-danger">*</span></label>
                         <select class="form-select" id="ap-city" name="location_id" required>
@@ -82,8 +72,8 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-8 mb-3">
-                        <label class="form-label" for="ap-district" name="address">Adresse <span class="text-danger">*</span></label>
-                        <input class="form-control" type="text" id="ap-address" placeholder="Adresse" required>
+                        <label class="form-label" for="ap-district" >Adresse <span class="text-danger">*</span></label>
+                        <input class="form-control" type="text" name="address" id="ap-address" placeholder="Adresse" required>
                     </div>
                     <div class="col-sm-4 mb-3">
                         <label class="form-label" for="ap-zip">Code postal  <span class="text-danger">*</span></label>
@@ -112,7 +102,7 @@
                         <label class="btn btn-outline-secondary fw-normal" for="bedrooms-3">3</label>
                         <input class="btn-check" type="radio" id="bedrooms-4" name="rooms" value="4" checked>
                         <label class="btn btn-outline-secondary fw-normal" for="bedrooms-4">4</label>
-                        <input class="btn-check" type="radio" id="bedrooms-5" name="rooms" value="5+">
+                        <input class="btn-check" type="radio" id="bedrooms-5" name="rooms" value="5">
                         <label class="btn btn-outline-secondary fw-normal" for="bedrooms-5">5+</label>
                     </div>
                 </div>
@@ -156,40 +146,22 @@
                 <div class="d-sm-flex">
 
                     <input class="form-control w-100 me-2 mb-2" name="budget" placeholder="Prix" type="number" >
-                    <select class="form-select w-50 mb-2">
-                        <option value="day">par jour</option>
-                        <option value="week">par semaine</option>
-                        <option value="month" selected>par mois</option>
-                        <option value="year">par an</option>
-                    </select>
+                    
                 </div>
             </section>
            
             <!-- Photos / video-->
-            <section class="card card-body border-0 shadow-sm p-4 mb-4" >
+            <section class="card card-body border-0 shadow-sm p-4 mb-4" id="photos">
                 <h2 class="h4 mb-4"><i class="fi-image text-primary fs-5 mt-n1 me-2"></i>Photos</h2>
-                {{-- <div class="alert alert-info mb-4" role="alert">
-                    <div class="d-flex"><i class="fi-alert-circle me-2 me-sm-3"></i>
-                        <p class="fs-sm mb-1">La taille maximale de la photo est de 8 Mo. Formats : jpeg, jpg, png. Mettez la photo principale en premier.</p>
-                    </div>
-                </div> --}}
+                
                 <input type="file" name="images[]" class="file-uploader file-uploader-grid" multiple accept="image/*">
 {{--                 <input class="file-uploader file-uploader-grid" type="file" name="images[]" multiple accept="image/*">
  --}}{{--                 <input class="file-uploader file-uploader-grid" name="images[]" type="file" multiple data-max-file-size="10MB" accept="image/png, image/jpeg, video/mp4, video/mov" data-label-idle="&lt;div class=&quot;btn btn-primary mb-3&quot;&gt;&lt;i class=&quot;fi-cloud-upload me-1&quot;&gt;&lt;/i&gt;Upload photos / video&lt;/div&gt;&lt;br&gt;or drag them in">
  --}}             </section>
-            <!-- Contacts-->
+           
             <section class="card card-body border-0 shadow-sm p-4 mb-4" id="contacts">
                 <h2 class="h4 mb-4"><i class="fi-phone text-primary fs-5 mt-n1 me-2"></i>Contacts</h2>
-               {{--  <div class="row">
-                    <div class="col-sm-6 mb-3">
-                        <label class="form-label" for="ap-fn">Prénom <span class="text-danger">*</span></label>
-                        <input class="form-control" type="text" id="ap-fn"  placeholder="Prénom" required>
-                    </div>
-                    <div class="col-sm-6 mb-3">
-                        <label class="form-label" for="ap-sn">Nom <span class="text-danger">*</span></label>
-                        <input class="form-control" type="text" id="ap-sn"  placeholder="Nom" required>
-                    </div>
-                </div> --}}
+               
                 <div class="row">
                     <div class="col-sm-6 mb-3">
                         <label class="form-label" for="ap-email">Adresse e-mail<span class="text-danger">*</span></label>
@@ -203,28 +175,85 @@
 
             </section>
             <!-- Action buttons -->
-            <section class="d-sm-flex justify-content-between pt-2"><a class="btn btn-outline-primary btn-lg d-block mb-3 mb-sm-2" href="#preview-modal" data-bs-toggle="modal"><i class="fi-eye-on ms-n1 me-2"></i>Aperçu</a><button type="submit" class="btn btn-primary btn-lg d-block mb-2" >Sauvegarder </button></section>
+            <section class="d-sm-flex justify-content-between pt-2">
+              <button type="submit" class="btn btn-primary btn-lg d-block mb-2" >Sauvegarder </button></section>
         </form></div>
        
         <!-- Progress of completion-->
         <aside class="col-lg-3 offset-lg-1 d-none d-lg-block">
             <div class="sticky-top pt-5">
-                <h6 class="pt-5 mt-3 mb-2">65% content filled</h6>
-                <div class="progress mb-4" style="height: .25rem;">
-                    <div class="progress-bar bg-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                <h6 id="progress-text" class="pt-5 mt-3 mb-2">0% content filled</h6>
+                <div id="progress-container" class="progress mb-4" style="height: .25rem;">
+                    <div id="progress-bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <ul class="list-unstyled">
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#basic-info" data-scroll data-scroll-offset="20">Basic info</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#location" data-scroll data-scroll-offset="20">Location</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#details" data-scroll data-scroll-offset="20">Property details</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-muted me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#price" data-scroll data-scroll-offset="20">Price</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-muted me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#photos" data-scroll data-scroll-offset="20">Photos / video</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#contacts" data-scroll data-scroll-offset="20">Contacts</a></li>
+                    <li class="step-item d-flex align-items-center" data-step="basic-info"><a class="nav-link fw-normal ps-1 p-0" href="#basic-info" data-scroll data-scroll-offset="20">Basic info</a></li>
+                    <li class="step-item d-flex align-items-center" data-step="location"><a class="nav-link fw-normal ps-1 p-0" href="#location" data-scroll data-scroll-offset="20">Location</a></li>
+                    <li class="step-item d-flex align-items-center" data-step="details"><a class="nav-link fw-normal ps-1 p-0" href="#details" data-scroll data-scroll-offset="20">Property details</a></li>
+                    <li class="step-item d-flex align-items-center" data-step="price"><a class="nav-link fw-normal ps-1 p-0" href="#price" data-scroll data-scroll-offset="20">Price</a></li>
+                    <li class="step-item d-flex align-items-center" data-step="photos"><a class="nav-link fw-normal ps-1 p-0" href="#photos" data-scroll data-scroll-offset="20">Photos / video</a></li>
+                    <li class="step-item d-flex align-items-center" data-step="contacts"><a class="nav-link fw-normal ps-1 p-0" href="#contacts" data-scroll data-scroll-offset="20">Contacts</a></li>
                 </ul>
             </div>
         </aside>
     </div>
 </div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $(':input:visible:enabled').not('[type="hidden"]').not('button').each(function(index, element) {
+            console.log(index, element);
+        });
+
+        $(':input:visible:enabled').not('button').change(updateProgressBar);
+
+      
+        $(':input:visible:enabled').not('button').change();
+
+        function updateProgressBar() {
+            var totalFields = $(':input:visible:enabled').not('[type="hidden"]').not('button').length;
+            var totalFields = totalFields- 11;
+            var filledFields = $(':input:visible:enabled').not('[type="hidden"]').not('button').filter(function () {
+                if ($(this).is(':checkbox') || $(this).is(':radio')) {
+                    return $(this).prop('checked');
+                } else {
+                    return $(this).val().trim() !== '';
+                }
+            }).length;
+
+            var progress = (filledFields / totalFields) * 100;
+            progress = Math.round(progress);
+            $('#progress-bar').css('width', progress + '%').attr('aria-valuenow', progress);
+
+      
+        $('#progress-text').text(progress + '% content filled');
+
+        if (progress >= 0 && progress < 40) {
+            $('#progress-bar').removeClass('bg-warning bg-success').addClass('bg-danger');
+         
+        } else if (progress >= 40 && progress < 100) {
+            $('#progress-bar').removeClass('bg-danger bg-success').addClass('bg-warning');
+        
+        } else if (progress === 100) {
+            $('#progress-bar').removeClass('bg-danger bg-warning').addClass('bg-success');
+          
+           
+        }
+    }
+
+    
+    });
+</script>
+
+
+
+
+
+
+
 
 
 

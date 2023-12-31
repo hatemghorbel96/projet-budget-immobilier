@@ -5,7 +5,7 @@
 
 
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Page content-->
 <!-- Page container-->
 <div class="container-fluid mt-5 pt-5 p-0">
@@ -20,88 +20,67 @@
                 </div>
                 <div class="offcanvas-header d-block border-bottom pt-0 pt-lg-4 px-lg-0">
                     <ul class="nav nav-tabs mb-0">
-                        <li class="nav-item"><a class="nav-link" href="real-estate-catalog-rent.html"><i
-                                    class="fi-rent fs-base me-2"></i>For rent</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="real-estate-catalog-sale.html"><i
-                                    class="fi-home fs-base me-2"></i>For sale</a></li>
+                        @php
+                            $type = request('type');
+                            $route = Route::current()->getName();
+                        @endphp
+                       <li class="nav-item">
+                        <a class="nav-link @if($type == 'rent' && $route == 'bien.index') active @endif" href="{{ route('bien.index', 'rent') }}">
+                            <i class="fi-rent fs-base me-2"></i>A louer
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link @if($type == 'sale' && $route == 'bien.index') active @endif" href="{{ route('bien.index', 'sale') }}">
+                            <i class="fi-home fs-base me-2"></i>À vendre
+                        </a>
+                    </li>
+                        
+                        
                     </ul>
                 </div>
                 <div class="offcanvas-body py-lg-4">
                     <div class="pb-4 mb-2">
                         <h3 class="h6">Location</h3>
-                        <select class="form-select mb-2">
-                            <option value="" disabled>Choose city</option>
-                            <option value="Chicago">Chicago</option>
-                            <option value="Dallas">Dallas</option>
-                            <option value="Los Angeles">Los Angeles</option>
-                            <option value="New York" selected>New York</option>
-                            <option value="San Diego">San Diego</option>
+                        <select class="form-select mb-2" id="location_filter">
+                            <option value="" >Choose city</option>
+                            @foreach ($locations as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option> 
+                            @endforeach
+                           
+                           
                         </select>
-                        <select class="form-select">
-                            <option value="" selected disabled>Choose district</option>
-                            <option value="Brooklyn">Brooklyn</option>
-                            <option value="Manhattan">Manhattan</option>
-                            <option value="Staten Island">Staten Island</option>
-                            <option value="The Bronx">The Bronx</option>
-                            <option value="Queens">Queens</option>
-                        </select>
+                     
                     </div>
                     <div class="pb-4 mb-2">
                         <h3 class="h6">Property type</h3>
                         <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false"
                             style="height: 11rem;">
+                            
+                            @foreach ($bientypes as $b)
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="house">
-                                <label class="form-check-label fs-sm" for="house">House</label>
+                                <input class="form-check-input"  type="checkbox" id="property_type" name="property_type" value="{{$b->id}}">
+                                <label class="form-check-label fs-sm" for="apartment">{{$b->name}}</label>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="apartment" checked>
-                                <label class="form-check-label fs-sm" for="apartment">Apartment</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="room">
-                                <label class="form-check-label fs-sm" for="room">Room</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="office">
-                                <label class="form-check-label fs-sm" for="office">Office</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="commercial">
-                                <label class="form-check-label fs-sm" for="commercial">Commercial</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="land">
-                                <label class="form-check-label fs-sm" for="land">Land</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="daily">
-                                <label class="form-check-label fs-sm" for="daily">Daily rental</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="new-building">
-                                <label class="form-check-label fs-sm" for="new-building">New building</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="parking-lot">
-                                <label class="form-check-label fs-sm" for="parking-lot">Parking lot</label>
-                            </div>
+                            @endforeach
+                           
+                            
                         </div>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6">Property price</h3>
-                        <div class="range-slider" data-start-min="90000" data-start-max="250000" data-min="30000"
-                            data-max="500000" data-step="1000">
+                        <h3 class="h6">Property price</h3> 
+                        <div class="range-slider" data-start-min="0" data-start-max="{{$maxBudget / 2}}" data-min="0"
+                            data-max="{{$maxBudget}}" data-step="1">
                             <div class="range-slider-ui"></div>
                             <div class="d-flex align-items-center">
                                 <div class="w-50 pe-2">
-                                    <div class="input-group"><span class="input-group-text fs-base">$</span>
+                                    <div class="input-group"><span class="input-group-text fs-base">DT</span>
                                         <input class="form-control range-slider-value-min" type="text">
                                     </div>
                                 </div>
                                 <div class="text-muted">&mdash;</div>
                                 <div class="w-50 ps-2">
-                                    <div class="input-group"><span class="input-group-text fs-base">$</span>
+                                    <div class="input-group"><span class="input-group-text fs-base">DT</span>
                                         <input class="form-control range-slider-value-max" type="text">
                                     </div>
                                 </div>
@@ -110,112 +89,43 @@
                     </div>
                     <div class="pb-4 mb-2">
                         <h3 class="h6 pt-1">Beds &amp; baths</h3>
+                        <!-- Bedrooms Section -->
                         <label class="d-block fs-sm mb-1">Bedrooms</label>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bedrooms">
-                            <input class="btn-check" type="radio" id="studio" name="bedrooms">
+                            <input class="btn-check" type="radio" id="studio" name="bedrooms" value="null">
                             <label class="btn btn-outline-secondary fw-normal" for="studio">Studio</label>
-                            <input class="btn-check" type="radio" id="bedrooms-1" name="bedrooms" checked>
-                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-1">1</label>
-                            <input class="btn-check" type="radio" id="bedrooms-2" name="bedrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-2">2</label>
-                            <input class="btn-check" type="radio" id="bedrooms-3" name="bedrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-3">3</label>
-                            <input class="btn-check" type="radio" id="bedrooms-4" name="bedrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-4">4+</label>
+                            <input class="btn-check" type="radio" id="bedrooms-1" name="bedrooms" value="1">
+                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-1" >1</label>
+                            <input class="btn-check" type="radio" id="bedrooms-2" name="bedrooms" value="2">
+                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-2" >2</label>
+                            <input class="btn-check" type="radio" id="bedrooms-3" name="bedrooms" value="3">
+                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-3" >3</label>
+                            <input class="btn-check" type="radio" id="bedrooms-4" name="bedrooms" value="4">
+                            <label class="btn btn-outline-secondary fw-normal" for="bedrooms-4" >4</label>
                         </div>
+                        <!-- Bathrooms Section -->
                         <label class="d-block fs-sm pt-2 my-1">Bathrooms</label>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bathrooms">
-                            <input class="btn-check" type="radio" id="bathrooms-1" name="bathrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-1">1</label>
-                            <input class="btn-check" type="radio" id="bathrooms-2" name="bathrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-2">2</label>
-                            <input class="btn-check" type="radio" id="bathrooms-3" name="bathrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-3">3</label>
-                            <input class="btn-check" type="radio" id="bathrooms-4" name="bathrooms">
-                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-4">4</label>
+                            <input class="btn-check" type="radio" id="bathrooms" name="bathrooms" value="null">
+                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms">Bathroom</label>
+                            <input class="btn-check" type="radio" id="bathrooms-1" name="bathrooms" value="1">
+                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-1" >1</label>
+                            <input class="btn-check" type="radio" id="bathrooms-2" name="bathrooms" value="2">
+                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-2" >2</label>
+                            <input class="btn-check" type="radio" id="bathrooms-3" name="bathrooms" value="3">
+                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-3" >3</label>
+                            <input class="btn-check" type="radio" id="bathrooms-4" name="bathrooms" value="4">
+                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms-4" >4</label>
                         </div>
                     </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6 pt-1">Square metres</h3>
-                        <div class="d-flex align-items-center">
-                            <input class="form-control w-100" type="number" min="20" max="500"
-                                step="10" placeholder="Min">
-                            <div class="mx-2">&mdash;</div>
-                            <input class="form-control w-100" type="number" min="20" max="500"
-                                step="10" placeholder="Max">
-                        </div>
-                    </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6">Amenities</h3>
-                        <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false"
-                            style="height: 11rem;">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="air-condition" checked>
-                                <label class="form-check-label fs-sm" for="air-condition">Air conditioning</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="balcony">
-                                <label class="form-check-label fs-sm" for="balcony">Balcony</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="garage" checked>
-                                <label class="form-check-label fs-sm" for="garage">Garage</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gym">
-                                <label class="form-check-label fs-sm" for="gym">Gym</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="parking">
-                                <label class="form-check-label fs-sm" for="parking">Parking</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="pool">
-                                <label class="form-check-label fs-sm" for="pool">Pool</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="camera">
-                                <label class="form-check-label fs-sm" for="camera">Security cameras</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="wifi" checked>
-                                <label class="form-check-label fs-sm" for="wifi">WiFi</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="laundry">
-                                <label class="form-check-label fs-sm" for="laundry">Laundry</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="dishwasher">
-                                <label class="form-check-label fs-sm" for="dishwasher">Dishwasher</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6">Pets</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="allow-cats">
-                            <label class="form-check-label fs-sm" for="allow-cats">Cats allowed</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="allow-dogs">
-                            <label class="form-check-label fs-sm" for="allow-dogs">Dogs allowed</label>
-                        </div>
-                    </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6">Additional options</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="verified">
-                            <label class="form-check-label fs-sm" for="verified">Verified</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="featured">
-                            <label class="form-check-label fs-sm" for="featured">Featured</label>
-                        </div>
-                    </div>
+                    
+                    
+                  
+                    
+                   
                     <div class="border-top py-4">
-                        <button class="btn btn-outline-primary" type="button"><i
-                                class="fi-rotate-right me-2"></i>Reset filters</button>
+                        <button class="btn btn-outline-primary" type="button" id="apply_filters_btn">Apply Filters</button>
+                        <button class="btn btn-outline-secondary" type="button" id="reset_filters_btn">Reset Filters</button>
                     </div>
                 </div>
             </div>
@@ -223,21 +133,17 @@
         <!-- Page content-->
         <div class="col-lg-8 col-xl-9 position-relative overflow-hidden pb-5 pt-4 px-3 px-xl-4 px-xxl-5">
             <!-- Map popup-->
-            <div class="map-popup invisible" id="map">
-                <button class="btn btn-icon btn-light btn-sm shadow-sm rounded-circle" type="button"
-                    data-bs-toggle-class="invisible" data-bs-target="#map"><i class="fi-x fs-xs"></i></button>
-                <div class="interactive-map" data-map-options-json="json/map-options-real-estate-sale.json"></div>
-            </div>
+           
             <!-- Breadcrumb-->
             <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Property for sale</li>
+                    <li class="breadcrumb-item active" aria-current="page">Property for {{$type}}</li>
                 </ol>
             </nav>
             <!-- Title-->
             <div class="d-sm-flex align-items-center justify-content-between pb-3 pb-sm-4">
-                <h1 class="h2 mb-sm-0">Property for sale</h1>
+                <h1 class="h2 mb-sm-0">Property for {{$type}}</h1>
             </div>
             <!-- Sorting-->
             <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch my-2">
@@ -259,51 +165,14 @@
                         results</span></div>
             </div>
             <!-- Catalog grid-->
-            <div class="row g-4 py-4">
+            <div class="row g-4 py-4" id="table_data">
                 <!-- Item-->
-                @foreach ($properties as $p)
-                    <div class="col-sm-6 col-xl-4">
-                        <div class="card shadow-sm card-hover border-0 h-100">
-                            <div class="tns-carousel-wrapper card-img-top card-img-hover">
-                                <a class="img-overlay" href="{{ route('bien.show', $p->id) }}"></a>
-                                <div class="position-absolute start-0 top-0 pt-3 ps-3"><span
-                                        class="d-table badge bg-success mb-1">Verified</span><span
-                                        class="d-table badge bg-info">New</span></div>
-                                <div class="content-overlay end-0 top-0 pt-3 pe-3">
-                                    <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle"
-                                        type="button" data-bs-toggle="tooltip" data-bs-placement="left"
-                                        title="Add to Wishlist"><i class="fi-heart"></i></button>
-                                </div>
-                                <div class="tns-carousel-inner">
-                                    @foreach ($p->images as $image)
-                                        <img src="{{ asset($image->path) }}" alt="Image">
-                                    @endforeach
-                                </div>
-                            </div>
-                            <div class="card-body position-relative pb-3">
-                                <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For {{ $p->for }}
-                                </h4>
-                                <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link"
-                                        href="{{ route('bien.show', $p->id) }}">{{ $p->title }} | 40 sq.m</a></h3>
-                                <p class="mb-2 fs-sm text-muted">{{ $p->address }}, {{ $p->location->name }}</p>
-                                <div class="fw-bold"><i
-                                        class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>{{ $p->budget }}
-                                    DT</div>
-                            </div>
-                            <div
-                                class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap">
-                                <span class="d-inline-block mx-1 px-2 fs-sm">{{$p->bathroom}}<i
-                                        class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span
-                                    class="d-inline-block mx-1 px-2 fs-sm">{{$p->rooms}}<i
-                                        class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span
-                                    class="d-inline-block mx-1 px-2 fs-sm">{{$p->parking}}<i
-                                        class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
-                        </div>
-                    </div>
-                @endforeach
+                
+                    @include('front.bien.ajax.listbien')
+              
             </div>
             <!-- Pagination-->
-            <nav class="border-top pb-md-4 pt-4 mt-2" aria-label="Pagination">
+           {{--  <nav class="border-top pb-md-4 pt-4 mt-2" aria-label="Pagination">
                 <ul class="pagination mb-1">
                     <li class="page-item d-sm-none"><span class="page-link page-link-static">1 / 5</span></li>
                     <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span
@@ -315,7 +184,98 @@
                     <li class="page-item"><a class="page-link" href="#" aria-label="Next"><i
                                 class="fi-chevron-right"></i></a></li>
                 </ul>
-            </nav>
+            </nav> --}}
         </div>
     </div>
 </div>
+
+<script>
+  
+
+        $('#apply_filters_btn').click(function () {
+            applyFilters();
+        });
+
+        $('#reset_filters_btn').click(function () {
+            resetFilters();
+        });
+
+        function applyFilters() {
+            var locationId = $('#location_filter').val();
+            var propertyType = $('input[name="property_type"]:checked').map(function () {
+                return this.value;
+            }).get();
+            var minBudget = $('.range-slider-value-min').val();
+            var maxBudget = $('.range-slider-value-max').val();
+            var bedrooms = $('input[name="bedrooms"]:checked').val();
+            var bathrooms = $('input[name="bathrooms"]:checked').val();
+            var type = '{{$type}}';
+            console.log('Location ID:', locationId);
+            console.log('Property Type:', propertyType);
+            console.log('Min Budget:', minBudget);
+            console.log('Max Budget:', maxBudget);
+            console.log('Bedrooms:', bedrooms);
+            console.log('Bathrooms:', bathrooms);
+            console.log('type:', type);
+            var url = '{{ route('ajax.pagination.fetch') }}';
+
+            $.ajax({
+                url: url,
+                method: 'GET',
+                data: {
+                    location: locationId,
+                    property_type: propertyType,
+                    min_budget: minBudget,
+                    max_budget: maxBudget,
+                    bedrooms: bedrooms,
+                    bathrooms: bathrooms,
+                    type:type
+                },
+                success: function (data) {
+                    console.log('Received data:', data);
+                    $('#table_data').html(data);
+                }
+            });
+        }
+
+        function resetFilters() {
+           
+            $('#location_filter').val('');
+            $('input[name="property_type"]').prop('checked', false);
+            $('.range-slider-value-min').val('');
+            $('.range-slider-value-max').val('');
+            $('input[name="bedrooms"]').prop('checked', false);
+            $('input[name="bathrooms"]').prop('checked', false);
+
+
+            applyFilters();
+        }
+ 
+
+    
+</script>
+
+<script>
+    
+    $(document).on('click', '.pagination a', function(event) {
+        event.preventDefault();
+        var page = $(this).attr('href').split('page=')[1];
+        fetch_data(page);
+
+    });
+
+    function fetch_data(page) {
+        var type = "{{$type}}";
+        var url = "{{ route('ajax.pagination.fetch') }}";
+
+        $.ajax({
+            url: url + "?page=" + page,
+            method: 'GET',
+            data: { type: type }, 
+            success: function(data) {
+                $('#table_data').html(data);
+            },
+        });
+    }
+</script>
+

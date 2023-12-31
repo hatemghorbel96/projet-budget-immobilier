@@ -11,6 +11,7 @@
     <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
     <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
     <meta name="author" content="Createx Studio">
+    
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon and Touch Icons-->
@@ -24,7 +25,7 @@
     <!-- Page loading styles-->
    
     <!-- Page loading scripts-->
-  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Vendor Styles-->
     <link rel="preload" href="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.css')}}" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -108,11 +109,11 @@
    
     
     <!-- Page loading spinner-->
-    <div class="page-loading active">
+    {{-- <div class="page-loading active">
       <div class="page-loading-inner">
         <div class="page-spinner"></div><span>Loading...</span>
       </div>
-    </div>
+    </div> --}}
     <main class="page-wrapper">
       <!-- Sign In Modal-->
       
