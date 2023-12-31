@@ -5,7 +5,7 @@
     <!-- Breadcrumb-->
     <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Acceuil</a></li>
             <li class="breadcrumb-item"><a href="real-estate-catalog-rent.html">Property for rent</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $p->title }}</li>
         </ol>
@@ -47,10 +47,10 @@
 
         @php
             $imageCount = count($p->images);
-            $displayCount = min($imageCount, 8); 
+            $displayCount = min($imageCount, 8);
         @endphp
 
-     
+
         @if ($imageCount > 0)
             <div class="col-8">
                 <a class="gallery-item rounded rounded-md-3" href="{{ asset($p->images[0]->path) }}"
@@ -60,7 +60,7 @@
             </div>
         @endif
 
-      
+
         @if ($imageCount > 1)
             <div class="col-4">
                 @foreach($p->images->slice(1, 2) as $image)
@@ -72,7 +72,7 @@
             </div>
         @endif
 
-       
+
         @if($imageCount > 3)
             <div class="col-12">
                 <div class="row g-2 g-md-3">
@@ -111,60 +111,36 @@
             <h2 class="h3 mb-4 pb-4 border-bottom">{{$p->budget}} DT<span
                     class="d-inline-block ms-1 fs-base fw-normal text-body">/month</span></h2>
             <!-- Overview-->
-          
-          
-            
+
+
+
                 <div class="mb-4 pb-md-3">
-                    <h3 class="h4">Overview</h3>
+                    <h3 class="h4">Description</h3>
                     <p class="mb-1">{{$p->description}}</p>
                     <div class="collapse" id="seeMoreOverview">
-                      
+
                     </div>
                    {{--  <a class="collapse-label collapsed" href="#seeMoreOverview" data-bs-toggle="collapse"
                         data-bs-label-collapsed="{{ __('Show more') }}" data-bs-label-expanded="{{ __('Show less') }}" role="button"
                         aria-expanded="false" aria-controls="seeMoreOverview"></a> --}}
                 </div>
-          
 
-            
+
+
             <!-- Property Details-->
             <div class="mb-4 pb-md-3">
-                <h3 class="h4">Property Details</h3>
+                <h3 class="h4">Critères</h3>
                 <ul class="list-unstyled mb-0">
                     <li><b>Type: </b>{{$p->bientype->name}}</li>
-                    <li><b>Apartment area: </b>{{$p->surface}}</li>
-                    <li><b>Built: </b>2015</li>
-                    <li><b>Bedrooms: </b>4</li>
-                    <li><b>Bathrooms: </b>{{$p->bathrooms}}</li>
-                    <li><b>Parking places: </b>{{$p->parking}}</li>
+                    <li><b>Superficie </b>{{$p->surface}}</li>
+                    <li><b>Chambres: </b>{{$p->bedrooms}}</li>
+                    <li><b>Salles de bains: </b>{{$p->bathrooms}}</li>
+                    <li><b>Parking: </b>{{$p->parking}}</li>
                   {{--   <li><b>Pets allowed: </b>cats only</li> --}}
                 </ul>
             </div>
             <!-- Amenities-->
-            <div class="mb-4 pb-md-3">
-                <h3 class="h4">Amenities</h3>
-                <ul class="list-unstyled row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-1 mb-1 text-nowrap">
-               
-                    <li class="col"><i class="fi-thermometer mt-n1 me-2 fs-lg align-middle"></i>Heating</li>
-                    @if ($p->parking != 0 || $p->parking != null)
-                    <li class="col"><i class="fi-parking mt-n1 me-2 fs-lg align-middle"></i>Parking place</li>
-                    @endif
-                    <li class="col"><i class="fi-snowflake mt-n1 me-2 fs-lg align-middle"></i>Air conditioning</li>
-     
-                    <li class="col"><i class="fi-swimming-pool mt-n1 me-2 fs-lg align-middle"></i>Swimming pool
-                    </li>
-            
-                    <li class="col"><i class="fi-cctv mt-n1 me-2 fs-lg align-middle"></i>Security cameras</li>
-                </ul>
-              
-                  
-                      
-                   
-                 
-                </div><a class="collapse-label collapsed" href="#seeMoreAmenities" data-bs-toggle="collapse"
-                    data-bs-label-collapsed="Show more" data-bs-label-expanded="Show less" role="button"
-                    aria-expanded="false" aria-controls="seeMoreAmenities"></a>
-            </div>
+
             <!-- Post meta-->
             <div class="mb-lg-5 mb-md-4 pb-lg-2 py-4 border-top">
                 <ul class="d-flex mb-4 list-unstyled fs-sm">
@@ -173,7 +149,7 @@
                     <li class="me-3 pe-3">Views: <b>{{$p->views}}</b></li>
                 </ul>
             </div>
-           
+
         </div>
         <!-- Sidebar-->
         <aside class="col-lg-4 col-md-5 ms-lg-auto pb-1">
@@ -234,7 +210,7 @@
                     </form>
                 </div>
             </div>
-           
+
         </aside>
     </div>
 </section>
@@ -242,14 +218,14 @@
 <section class="container mb-5 pb-2 pb-lg-4">
     <div class="d-flex align-items-center justify-content-between mb-3">
         <h2 class="h3 mb-0">Recently viewed</h2><a class="btn btn-link fw-normal p-0"
-            href="real-estate-catalog-rent.html">View all<i class="fi-arrow-long-right ms-2"></i></a>
+            href="real-estate-catalog-rent.html">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
     </div>
     <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
         <div class="tns-carousel-inner row gx-4 mx-0 pt-3 pb-4"
             data-carousel-options="{&quot;items&quot;: 4, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;992&quot;:{&quot;items&quot;:4}}}">
             @foreach($otherProperties as $po)
-            
-        
+
+
             <div class="col">
                 <div class="card shadow-sm card-hover border-0 h-100">
                     <div class="card-img-top card-img-hover">
@@ -293,7 +269,7 @@
                 </div>
             </div>
         @endforeach
-        
+
         </div>
     </div>
 </section>

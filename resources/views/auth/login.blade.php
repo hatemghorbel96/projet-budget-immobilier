@@ -14,6 +14,7 @@
                         <div class="mb-4">
                             <label class="form-label mb-2" for="email" :value="__('Email')">Adresse e-mail</label>
                             <input class="form-control"  id="email" placeholder="Votre adresse e-mail." type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
                         <div class="mb-4">
 
@@ -24,6 +25,7 @@
                                 <label class="password-toggle-btn" aria-label="Show/hide password">
                                     <input class="password-toggle-check" type="checkbox"><span class="password-toggle-indicator"></span>
                                 </label>
+                                <x-input-error :messages="$errors->get('password')" class="mt-2" />
                             </div>
                         </div>
                         <button class="btn btn-primary btn-lg w-100" type="submit">Connexion</button>

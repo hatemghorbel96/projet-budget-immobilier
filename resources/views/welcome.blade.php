@@ -1,7 +1,7 @@
    @extends('main')
    <section class="container pt-5 my-5 pb-lg-4">
     <div class="row pt-0 pt-md-2 pt-lg-0">
-      <div class="col-xl-7 col-lg-6 col-md-5 order-md-2 mb-4 mb-lg-3"><img src="{{asset('front/assets/img/real-estate/hero-image.jpg')}}" alt="Hero image"></div>
+      <div class="col-xl-7 col-lg-6 col-md-5 order-md-2 mb-4 mb-lg-3"><img src="{{asset('front/assets/img/real-estate/acceuil.jpeg')}}" alt="Hero image"></div>
       <div class="col-xl-5 col-lg-6 col-md-7 order-md-1 pt-xl-5 pe-lg-0 mb-3 text-md-start text-center">
         <h1 class="display-4 mt-lg-5 mb-md-4 mb-3 pt-md-4 pb-lg-2">Trouver facilement  <br> les biens parfaits.</h1>
         <p class="position-relative lead me-lg-n5">Nous proposons une gamme complète de services pour la vente, l'achat ou la location de biens immobiliers, avec plus de 10 ans d'expérience. Explorez une multitude d'appartements et de maisons sur Budget Immobilier.</p>
@@ -16,7 +16,6 @@
                 <input type="hidden">
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label"> Louer</span></a></li>
-                  <li><a class="dropdown-item" href="#"><span class="dropdown-item-label"> Vendre</span></a></li>
                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label"> Acheter</span></a></li>
                 </ul>
               </div>
@@ -47,7 +46,7 @@
             </div>
             <hr class="d-md-none mt-2">
             <div class="col-md-4 d-sm-flex align-items-center pt-4 pt-md-0">
-              <div class="d-flex align-items-center w-100 pt-2 pb-4 py-sm-0 ps-2 ps-sm-3"><i class="fi-cash fs-lg text-muted me-2"></i><span class="text-muted">Price</span>
+              <div class="d-flex align-items-center w-100 pt-2 pb-4 py-sm-0 ps-2 ps-sm-3"><i class="fi-cash fs-lg text-muted me-2"></i><span class="text-muted">Prix</span>
                 <div class="range-slider pe-0 pe-sm-3" data-start-min="450" data-min="0" data-max="1000" data-step="1">
                   <div class="range-slider-ui"></div>
                   <input class="form-control range-slider-value-min" type="hidden">
@@ -117,266 +116,93 @@
   </section>
   <hr class="mt-n1 mb-5 d-md-none">
   <!-- Top offers (carousel)-->
-  <section class="container mb-5 pb-md-4">
-    <div class="d-flex align-items-center justify-content-between mb-3">
-      <h2 class="h3 mb-0">Meilleures offres</h2><a class="btn btn-link fw-normal p-0" href="real-estate-catalog-rent.html">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
-    </div>
-    <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
-      <div class="tns-carousel-inner row gx-4 mx-0 pt-3 pb-4" data-carousel-options="{&quot;items&quot;: 4, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;992&quot;:{&quot;items&quot;:4}}}">
-        <!-- Item-->
-        <div class="col">
-          <div class="card shadow-sm card-hover border-0 h-100">
-            <div class="card-img-top card-img-hover"><a class="img-overlay" href="real-estate-single-v1.html"></a>
-              <div class="position-absolute start-0 top-0 pt-3 ps-3"><span class="d-table badge bg-success mb-1">Verified</span><span class="d-table badge bg-info">New</span></div>
-              <div class="content-overlay end-0 top-0 pt-3 pe-3">
-                <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist"><i class="fi-heart"></i></button>
-              </div><img src="{{asset('front/assets/img/real-estate/catalog/01.jpg')}}" alt="Image">
-            </div>
-            <div class="card-body position-relative pb-3">
-              <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For rent</h4>
-              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">3-bed Apartment | 67 sq.m</a></h3>
-              <p class="mb-2 fs-sm text-muted">3811 Ditmars Blvd Astoria, NY 11105</p>
-              <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>$1,629</div>
-            </div>
-            <div class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap"><span class="d-inline-block mx-1 px-2 fs-sm">3<i class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">2<i class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">2<i class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
-          </div>
-        </div>
-        <!-- Item-->
-        <div class="col">
-          <div class="card shadow-sm card-hover border-0 h-100">
-            <div class="card-img-top card-img-hover"><a class="img-overlay" href="real-estate-single-v1.html"></a>
-              <div class="position-absolute start-0 top-0 pt-3 ps-3"><span class="d-table badge bg-success mb-1">Verified</span><span class="d-table badge bg-danger">Featured</span></div>
-              <div class="content-overlay end-0 top-0 pt-3 pe-3">
-                <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist"><i class="fi-heart"></i></button>
-              </div><img src="{{asset('front/assets/img/real-estate/catalog/02.jpg')}}" alt="Image">
-            </div>
-            <div class="card-body position-relative pb-3">
-              <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For sale</h4>
-              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">Family Dashboard| 120 sq.m</a></h3>
-              <p class="mb-2 fs-sm text-muted">67-04 Myrtle Ave Glendale, NY 11385</p>
-              <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>$84,000</div>
-            </div>
-            <div class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap"><span class="d-inline-block mx-1 px-2 fs-sm">4<i class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">2<i class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">2<i class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
-          </div>
-        </div>
-        <!-- Item-->
-        <div class="col">
-          <div class="card shadow-sm card-hover border-0 h-100">
-            <div class="card-img-top card-img-hover"><a class="img-overlay" href="real-estate-single-v1.html"></a>
-              <div class="position-absolute start-0 top-0 pt-3 ps-3"><span class="d-table badge bg-success">Verified</span></div>
-              <div class="content-overlay end-0 top-0 pt-3 pe-3">
-                <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist"><i class="fi-heart"></i></button>
-              </div><img src="{{asset('front/assets/img/real-estate/catalog/03.jpg')}}" alt="Image">
-            </div>
-            <div class="card-body position-relative pb-3">
-              <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For rent</h4>
-              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">Greenpoint Rentals | 85 sq.m</a></h3>
-              <p class="mb-2 fs-sm text-muted">1510 Castle Hill Ave Bronx, NY 10462</p>
-              <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>$1,330</div>
-            </div>
-            <div class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap"><span class="d-inline-block mx-1 px-2 fs-sm">1<i class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">1<i class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">1<i class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
-          </div>
-        </div>
-        <!-- Item-->
-        <div class="col">
-          <div class="card shadow-sm card-hover border-0 h-100">
-            <div class="card-img-top card-img-hover"><a class="img-overlay" href="real-estate-single-v1.html"></a>
-              <div class="position-absolute start-0 top-0 pt-3 ps-3"><span class="d-table badge bg-success mb-1">Verified</span><span class="d-table badge bg-info">New</span></div>
-              <div class="content-overlay end-0 top-0 pt-3 pe-3">
-                <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist"><i class="fi-heart"></i></button>
-              </div><img src="{{asset('front/assets/img/real-estate/catalog/04.jpg')}}" alt="Image">
-            </div>
-            <div class="card-body position-relative pb-3">
-              <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For sale</h4>
-              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">Studio | 32 sq.m</a></h3>
-              <p class="mb-2 fs-sm text-muted">140-60 Beech Ave Flushing, NY 11355</p>
-              <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>$65,000</div>
-            </div>
-            <div class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap"><span class="d-inline-block mx-1 px-2 fs-sm">1<i class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">1<i class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">2<i class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
-          </div>
-        </div>
-        <!-- Item-->
-        <div class="col">
-          <div class="card shadow-sm card-hover border-0 h-100">
-            <div class="card-img-top card-img-hover"><a class="img-overlay" href="real-estate-single-v1.html"></a>
-              <div class="position-absolute start-0 top-0 pt-3 ps-3"><span class="d-table badge bg-success mb-1">Verified</span></div>
-              <div class="content-overlay end-0 top-0 pt-3 pe-3">
-                <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle" type="button" data-bs-toggle="tooltip" data-bs-placement="left" title="Add to Wishlist"><i class="fi-heart"></i></button>
-              </div><img src="{{asset('front/assets/img/real-estate/catalog/05.jpg')}}" alt="Image">
-            </div>
-            <div class="card-body position-relative pb-3">
-              <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For sale</h4>
-              <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link" href="real-estate-single-v1.html">Cottage | 120 sq.m</a></h3>
-              <p class="mb-2 fs-sm text-muted">42 Broadway New York, NY 10004</p>
-              <div class="fw-bold"><i class="fi-cash mt-n1 me-2 lead align-middle opacity-70"></i>$184,000</div>
-            </div>
-            <div class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap"><span class="d-inline-block mx-1 px-2 fs-sm">4<i class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">2<i class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span class="d-inline-block mx-1 px-2 fs-sm">1<i class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+   <section class="container mt-n3 mt-md-0 mb-5 pb-3 pb-lg-4">
+       <div class="d-flex align-items-end justify-content-between mb-4 pb-md-2">
+           <h2 class="h3 mb-0">Annonces </h2><a class="btn btn-link fw-normal ms-2 p-0" href="">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
+       </div>
+       <!-- Carousel-->
+       <div class="tns-carousel-wrapper">
+           <div class="tns-carousel-inner" data-carousel-options="{&quot;mode&quot;: &quot;gallery&quot;, &quot;speed&quot;: 800, &quot;nav&quot;: false, &quot;controlsContainer&quot;: &quot;#carousel-controls-lp&quot;}">
+               <!-- Item-->
+               <div>
+                   <div class="row">
+                       <div class="col-lg-8 col-md-7 mb-md-0 mb-3">
+                           <div class="position-relative pe-lg-5">
+                               <div class="position-absolute top-0 start-0 zindex-1 m-3 p-1"><span class="badge bg-info fs-sm me-2">New</span><span class="badge bg-success fs-sm me-2">Verified</span></div><img class="rounded-3 zindex-5" src="{{asset('front/assets/img/real-estate/recent/04.jpg')}}" alt="Article image">
+                           </div>
+                       </div>
+                       <div class="col-lg-4 col-md-5"><span class="d-inline-block fs-sm text-uppercase text-primary mb-2 from-top">For sale</span>
+                           <div class="from-start delay-2">
+                               <h3 class="h4 mb-2">Duplex with Garage</h3>
+                               <p class="mb-md-4 mb-3 fs-sm">28 Jackson Ave Long Island City, NY 67234</p>
+                               <ul class="d-flex mb-md-4 mb-3 list-unstyled">
+                                   <li class="me-3 pe-3 border-end"><b class="me-1">4</b><i class="fi-bed mt-n1 lead align-middle text-muted"></i></li>
+                                   <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i class="fi-bath mt-n1 lead align-middle text-muted"></i></li>
+                                   <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i class="fi-car mt-n1 lead align-middle text-muted"></i></li>
+                                   <li><b>126 </b>sq.m</li>
+                               </ul>
+                               <p class="mb-4 pb-md-2">Blandit lorem dictum in velit. Et nisi at faucibus mauris pretium enim. Risus sapien nisi aliquam egestas leo dignissim ut quis ac. Amet, cras orci justo, tortor nisl aliquet.</p>
+                           </div>
+                           <div class="btn-group btn-group-lg scale-up delay-3" role="group" aria-label="Buy now or add to wishlist"><a class="btn btn-primary" href="real-estate-single-v2.html">Sale for $160,000</a>
+                               <button class="btn btn-primary px-3 border-start border-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Wishlist"><i class="fi-heart fs-5"></i></button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <!-- Item-->
+               <div>
+                   <div class="row">
+                       <div class="col-lg-8 col-md-7 mb-md-0 mb-3">
+                           <div class="position-relative pe-lg-5">
+                               <div class="position-absolute top-0 start-0 zindex-1 m-3 p-1"><span class="badge bg-info fs-sm me-2">New</span><span class="badge bg-success fs-sm me-2">Verified</span></div><img class="rounded-3 zindex-5" src="{{asset('front/assets/img/real-estate/recent/05.jpg')}}" alt="Article image">
+                           </div>
+                       </div>
+                       <div class="col-lg-4 col-md-5"><span class="d-inline-block fs-sm text-uppercase text-primary mb-2 from-top">For rent</span>
+                           <div class="from-start delay-2">
+                               <h3 class="h4 mb-2">Luxury Rental Villa</h3>
+                               <p class="mb-md-4 mb-3 fs-sm">1510 Castle Hill Ave Bronx, NY 10462</p>
+                               <ul class="d-flex mb-md-4 mb-3 list-unstyled">
+                                   <li class="me-3 pe-3 border-end"><b class="me-1">5</b><i class="fi-bed mt-n1 lead align-middle text-muted"></i></li>
+                                   <li class="me-3 pe-3 border-end"><b class="me-1">3</b><i class="fi-bath mt-n1 lead align-middle text-muted"></i></li>
+                                   <li class="me-3 pe-3 border-end"><b class="me-1">1</b><i class="fi-car mt-n1 lead align-middle text-muted"></i></li>
+                                   <li><b>140 </b>sq.m</li>
+                               </ul>
+                               <p class="mb-4 pb-md-2">Sagittis faucibus feugiat integer quam vel ornare. Tellus, vel consequat, sagittis ut penatibus urna, ante. Mattis fermentum lectus sed nisl ac viverra lacus. A at iaculis etiam nunc, diam urna in.</p>
+                           </div>
+                           <div class="btn-group btn-group-lg scale-up delay-3" role="group" aria-label="Buy now or add to wishlist"><a class="btn btn-primary" href="#">Rent from $2,850</a>
+                               <button class="btn btn-primary px-3 border-start border-light" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to Wishlist"><i class="fi-heart fs-5"></i></button>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <!-- Carousel custom controls-->
+       <div class="tns-carousel-controls pt-2 mt-4" id="carousel-controls-lp">
+           <button class="me-3" type="button"><i class="fi-chevron-left fs-xs"></i></button>
+           <button type="button"><i class="fi-chevron-right fs-xs"></i></button>
+       </div>
+   </section>
 
 
-  <!-- Cities (carousel)-->
-  <section class="container mb-5 pb-2">
-    <div class="d-flex align-items-center justify-content-between mb-3">
-      <h2 class="h3 mb-0">Rechercher des biens par ville</h2><a class="btn btn-link fw-normal ms-md-3 pb-0" href="real-estate-catalog-rent.html">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
-    </div>
-    <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
-      <div class="tns-carousel-inner row gx-4 mx-0 py-md-4 py-3" data-carousel-options="{&quot;items&quot;: 4, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;992&quot;:{&quot;items&quot;:4}}}">
-        <!-- Item-->
-        <div class="col"><a class="card shadow-sm card-hover border-0" href="real-estate-catalog-sale.html">
-            <div class="card-img-top card-img-hover"><span class="img-overlay opacity-65"></span><img src="{{asset('front/assets/img/real-estate/city/new-york.jpg')}}" alt="New York">
-              <div class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
-                <div class="w-100 p-1">
-                  <div class="mb-2">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">893</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">3756</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h3 class="mb-0 fs-base text-nav">New York</h3>
-            </div></a></div>
-        <!-- Item-->
-        <div class="col"><a class="card shadow-sm card-hover border-0" href="real-estate-catalog-rent.html">
-            <div class="card-img-top card-img-hover"><span class="img-overlay opacity-65"></span><img src="{{asset('front/assets/img/real-estate/city/chicago.jpg')}}" alt="Chicago">
-              <div class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
-                <div class="w-100 p-1">
-                  <div class="mb-2">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 37%" aria-valuenow="37" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">268</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">1540</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h3 class="mb-0 fs-base text-nav">Chicago</h3>
-            </div></a></div>
-        <!-- Item-->
-        <div class="col"><a class="card shadow-sm card-hover border-0" href="real-estate-catalog-sale.html">
-            <div class="card-img-top card-img-hover"><span class="img-overlay opacity-65"></span><img src="{{asset('front/assets/img/real-estate/city/los-angeles.jpg')}}" alt="Los Angeles">
-              <div class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
-                <div class="w-100 p-1">
-                  <div class="mb-2">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">2750</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">692</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h3 class="mb-0 fs-base text-nav">Los Angeles</h3>
-            </div></a></div>
-        <!-- Item-->
-        <div class="col"><a class="card shadow-sm card-hover border-0" href="real-estate-catalog-rent.html">
-            <div class="card-img-top card-img-hover"><span class="img-overlay opacity-65"></span>
-              <img src="{{asset('front/assets/img/real-estate/city/san-diego.jpg')}}" alt="San Diego">
-              <div class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
-                <div class="w-100 p-1">
-                  <div class="mb-2">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">1739</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">1854</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h3 class="mb-0 fs-base text-nav">San Diego</h3>
-            </div></a></div>
-        <!-- Item-->
-        <div class="col"><a class="card shadow-sm card-hover border-0" href="real-estate-catalog-sale.html">
-            <div class="card-img-top card-img-hover"><span class="img-overlay opacity-65"></span>
-            <img src="{{asset('front/assets/img/real-estate/city/dallas.jpg')}}" alt="Dallas">
-              <div class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
-                <div class="w-100 p-1">
-                  <div class="mb-2">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">2567</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <h4 class="mb-2 fs-xs fw-normal text-light"><i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent</h4>
-                    <div class="d-flex align-items-center">
-                      <div class="progress progress-light w-100">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                      </div><span class="text-light fs-sm ps-1 ms-2">1204</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-body text-center">
-              <h3 class="mb-0 fs-base text-nav">Dallas</h3>
-            </div></a></div>
-      </div>
-    </div>
-  </section>
-  <!-- Partners (carousel)-->
-  <section class="container mb-5 pb-2 pb-lg-4">
-    <h2 class="h3 mb-4 text-center text-md-start">Our partners</h2>
-    <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush">
-      <div class="tns-carousel-inner" data-carousel-options="{&quot;items&quot;: 6, &quot;controls&quot;: false, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:2}, &quot;500&quot;:{&quot;items&quot;:4}, &quot;992&quot;:{&quot;items&quot;:5, &quot;gutter&quot;: 16}, &quot;1200&quot;:{&quot;items&quot;:6, &quot;gutter&quot;: 24}}}">
-        <div><a class="swap-image" href="#"><img class="swap-to" src="{{asset('front/assets/img/real-estate/brands/01_color.svg')}}" alt="Logo" width="196"><img class="swap-from" src="{{asset('front/assets/img/real-estate/brands/01_gray.svg')}}" alt="Logo" width="196"></a></div>
-        <div><a class="swap-image" href="#"><img class="swap-to" src="{{asset('front/assets/img/real-estate/brands/02_color.svg')}}" alt="Logo" width="196"><img class="swap-from" src="{{asset('front/assets/img/real-estate/brands/02_gray.svg')}}" alt="Logo" width="196"></a></div>
-        <div><a class="swap-image" href="#"><img class="swap-to" src="{{asset('front/assets/img/real-estate/brands/03_color.svg')}}" alt="Logo" width="196"><img class="swap-from" src="{{asset('front/assets/img/real-estate/brands/03_gray.svg')}}" alt="Logo" width="196"></a></div>
-        <div><a class="swap-image" href="#"><img class="swap-to" src="{{asset('front/assets/img/real-estate/brands/04_color.svg')}}" alt="Logo" width="196"><img class="swap-from" src="{{asset('front/assets/img/real-estate/brands/04_gray.svg')}}" alt="Logo" width="196"></a></div>
-        <div><a class="swap-image" href="#"><img class="swap-to" src="{{asset('front/assets/img/real-estate/brands/05_color.svg')}}" alt="Logo" width="196"><img class="swap-from" src="{{asset('front/assets/img/real-estate/brands/05_gray.svg')}}" alt="Logo" width="196"></a></div>
-        <div><a class="swap-image" href="#"><img class="swap-to" src="{{asset('front/assets/img/real-estate/brands/06_color.svg')}}" alt="Logo" width="196"><img class="swap-from" src="{{asset('front/assets/img/real-estate/brands/06_gray.svg')}}" alt="Logo" width="196"></a></div>
-      </div>
-    </div>
-  </section>
+
+   <!-- Find your agent-->
+   <section class="container mb-5 pb-lg-5 pb-md-4">
+       <div class="card py-lg-5 py-4 border-0 bg-secondary">
+           <div class="card-body p-4 text-center">
+               <h2>Trouvez votre agent</h2>
+               <p class="mx-auto mb-md-5 mb-4 pb-lg-3" style="max-width: 53.125rem;">
+                   Nous avons le répertoire le plus complet d'agents immobiliers pour vous aider avec tous vos besoins en matière de propriété. Que vous souhaitiez acheter, vendre ou louer, commencez votre recherche pour trouver l'expertise locale adaptée.</p>
+               <!-- Agent ava's-->
+               <div class="d-flex align-items-center justify-content-center flex-wrap mb-md-5 mb-4 pb-lg-3 ps-3 pt-4">
+                   <div class="border border-5 border-white rounded-circle bg-white ms-n3 mt-n4"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/39.jpg')}}" width="110" alt="Avatar"></div>
+                   <div class="border border-5 border-white rounded-circle bg-white ms-n3 mt-n4"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/40.jpg')}}" width="110" alt="Avatar"></div>
+                   <div class="border border-5 border-white rounded-circle bg-white ms-n3 mt-n4"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/41.jpg')}}" width="110" alt="Avatar"></div>
+                   <div class="border border-5 border-white rounded-circle bg-white ms-n3 mt-n4"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/42.jpg')}}" width="110" alt="Avatar"></div>
+                   <div class="border border-5 border-white rounded-circle bg-white ms-n3 mt-n4"><img class="rounded-circle" src="{{asset('front/assets/img/avatars/43.jpg')}}" width="110" alt="Avatar"></div>
+               </div><a class="btn btn-lg btn-primary w-sm-auto w-100" href="#">Trouver un agent<i class="fi-chevron-right ms-2"></i></a>
+           </div>
+       </div>
+   </section>
+
 

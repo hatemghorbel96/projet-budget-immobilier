@@ -21,24 +21,24 @@
                 <div class="offcanvas-header d-block border-bottom pt-0 pt-lg-4 px-lg-0">
                     <ul class="nav nav-tabs mb-0">
                         <li class="nav-item"><a class="nav-link" href="real-estate-catalog-rent.html"><i
-                                    class="fi-rent fs-base me-2"></i>For rent</a></li>
+                                    class="fi-rent fs-base me-2"></i>Louer</a></li>
                         <li class="nav-item"><a class="nav-link active" href="real-estate-catalog-sale.html"><i
-                                    class="fi-home fs-base me-2"></i>For sale</a></li>
+                                    class="fi-home fs-base me-2"></i>Acheter</a></li>
                     </ul>
                 </div>
                 <div class="offcanvas-body py-lg-4">
                     <div class="pb-4 mb-2">
-                        <h3 class="h6">Location</h3>
+                        <h3 class="h6">Ville</h3>
                         <select class="form-select mb-2">
-                            <option value="" disabled>Choose city</option>
+                            <option value="" disabled selected>Ville</option>
                             <option value="Chicago">Chicago</option>
                             <option value="Dallas">Dallas</option>
                             <option value="Los Angeles">Los Angeles</option>
-                            <option value="New York" selected>New York</option>
+                            <option value="New York" >New York</option>
                             <option value="San Diego">San Diego</option>
                         </select>
                         <select class="form-select">
-                            <option value="" selected disabled>Choose district</option>
+                            <option value="" selected disabled>Délégation</option>
                             <option value="Brooklyn">Brooklyn</option>
                             <option value="Manhattan">Manhattan</option>
                             <option value="Staten Island">Staten Island</option>
@@ -47,7 +47,7 @@
                         </select>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6">Property type</h3>
+                        <h3 class="h6">Bien type</h3>
                         <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false"
                             style="height: 11rem;">
                             <div class="form-check">
@@ -89,28 +89,18 @@
                         </div>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6">Property price</h3>
-                        <div class="range-slider" data-start-min="90000" data-start-max="250000" data-min="30000"
-                            data-max="500000" data-step="1000">
-                            <div class="range-slider-ui"></div>
-                            <div class="d-flex align-items-center">
-                                <div class="w-50 pe-2">
-                                    <div class="input-group"><span class="input-group-text fs-base">$</span>
-                                        <input class="form-control range-slider-value-min" type="text">
-                                    </div>
-                                </div>
-                                <div class="text-muted">&mdash;</div>
-                                <div class="w-50 ps-2">
-                                    <div class="input-group"><span class="input-group-text fs-base">$</span>
-                                        <input class="form-control range-slider-value-max" type="text">
-                                    </div>
-                                </div>
-                            </div>
+                        <h3 class="h6 pt-1">Prix</h3>
+                        <div class="d-flex align-items-center">
+                            <input class="form-control w-100" type="number" min="20" max="500"
+                                   step="10" placeholder="Min">
+                            <div class="mx-2">&mdash;</div>
+                            <input class="form-control w-100" type="number" min="20" max="500"
+                                   step="10" placeholder="Max">
                         </div>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6 pt-1">Beds &amp; baths</h3>
-                        <label class="d-block fs-sm mb-1">Bedrooms</label>
+                        <h3 class="h6 pt-1">Chambres &amp; Bains</h3>
+                        <label class="d-block fs-sm mb-1">Chambres</label>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bedrooms">
                             <input class="btn-check" type="radio" id="studio" name="bedrooms">
                             <label class="btn btn-outline-secondary fw-normal" for="studio">Studio</label>
@@ -123,7 +113,7 @@
                             <input class="btn-check" type="radio" id="bedrooms-4" name="bedrooms">
                             <label class="btn btn-outline-secondary fw-normal" for="bedrooms-4">4+</label>
                         </div>
-                        <label class="d-block fs-sm pt-2 my-1">Bathrooms</label>
+                        <label class="d-block fs-sm pt-2 my-1">Salle de bains</label>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bathrooms">
                             <input class="btn-check" type="radio" id="bathrooms-1" name="bathrooms">
                             <label class="btn btn-outline-secondary fw-normal" for="bathrooms-1">1</label>
@@ -136,7 +126,7 @@
                         </div>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6 pt-1">Square metres</h3>
+                        <h3 class="h6 pt-1">Surface totale</h3>
                         <div class="d-flex align-items-center">
                             <input class="form-control w-100" type="number" min="20" max="500"
                                 step="10" placeholder="Min">
@@ -145,77 +135,10 @@
                                 step="10" placeholder="Max">
                         </div>
                     </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6">Amenities</h3>
-                        <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false"
-                            style="height: 11rem;">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="air-condition" checked>
-                                <label class="form-check-label fs-sm" for="air-condition">Air conditioning</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="balcony">
-                                <label class="form-check-label fs-sm" for="balcony">Balcony</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="garage" checked>
-                                <label class="form-check-label fs-sm" for="garage">Garage</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gym">
-                                <label class="form-check-label fs-sm" for="gym">Gym</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="parking">
-                                <label class="form-check-label fs-sm" for="parking">Parking</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="pool">
-                                <label class="form-check-label fs-sm" for="pool">Pool</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="camera">
-                                <label class="form-check-label fs-sm" for="camera">Security cameras</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="wifi" checked>
-                                <label class="form-check-label fs-sm" for="wifi">WiFi</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="laundry">
-                                <label class="form-check-label fs-sm" for="laundry">Laundry</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="dishwasher">
-                                <label class="form-check-label fs-sm" for="dishwasher">Dishwasher</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6">Pets</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="allow-cats">
-                            <label class="form-check-label fs-sm" for="allow-cats">Cats allowed</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="allow-dogs">
-                            <label class="form-check-label fs-sm" for="allow-dogs">Dogs allowed</label>
-                        </div>
-                    </div>
-                    <div class="pb-4 mb-2">
-                        <h3 class="h6">Additional options</h3>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="verified">
-                            <label class="form-check-label fs-sm" for="verified">Verified</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="featured">
-                            <label class="form-check-label fs-sm" for="featured">Featured</label>
-                        </div>
-                    </div>
+
                     <div class="border-top py-4">
                         <button class="btn btn-outline-primary" type="button"><i
-                                class="fi-rotate-right me-2"></i>Reset filters</button>
+                                class="fi-rotate-right me-2"></i>Réinitialiser les filtres</button>
                     </div>
                 </div>
             </div>
@@ -231,7 +154,7 @@
             <!-- Breadcrumb-->
             <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Acceuil</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Property for sale</li>
                 </ol>
             </nav>
@@ -243,20 +166,18 @@
             <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch my-2">
                 <div class="d-flex align-items-center flex-shrink-0">
                     <label class="fs-sm me-2 pe-1 text-nowrap" for="sortby"><i
-                            class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
+                            class="fi-arrows-sort text-muted mt-n1 me-2"></i>Trier par :</label>
                     <select class="form-select form-select-sm" id="sortby">
-                        <option>Newest</option>
-                        <option>Popularity</option>
-                        <option>Low - High Price</option>
-                        <option>High - Low Price</option>
-                        <option>High rating</option>
-                        <option>Average Rating</option>
+                        <option>Plus récent</option>
+                        <option>Popularité</option>
+                        <option>Prix croissant</option>
+                        <option>Prix décroissant</option>
                     </select>
                 </div>
                 <hr class="d-none d-sm-block w-100 mx-4">
                 <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted"><i
                         class="fi-check-circle me-2"></i><span class="fs-sm mt-n1">{{ $properties->count() }}
-                        results</span></div>
+                        résultats</span></div>
             </div>
             <!-- Catalog grid-->
             <div class="row g-4 py-4">
@@ -281,7 +202,7 @@
                                 </div>
                             </div>
                             <div class="card-body position-relative pb-3">
-                                <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">For {{ $p->for }}
+                                <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary"> {{ $p->for }}
                                 </h4>
                                 <h3 class="h6 mb-2 fs-base"><a class="nav-link stretched-link"
                                         href="{{ route('bien.show', $p->id) }}">{{ $p->title }} | 40 sq.m</a></h3>

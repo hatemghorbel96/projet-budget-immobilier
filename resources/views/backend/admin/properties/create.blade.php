@@ -32,15 +32,15 @@
                 <h2 class="h4 mb-4"><i class="fi-info-circle text-primary fs-5 mt-n1 me-2"></i>Informations de base</h2>
                 <div class="mb-3">
                     <label class="form-label" for="ap-title">Titre <span class="text-danger">*</span></label>
-                    <input class="form-control" type="text" name="title" placeholder="Titre"  required><span class="form-text">48 characters left</span>
+                    <input class="form-control" type="text" name="title" placeholder="Titre"  required><span class="form-text"></span>
                 </div>
                 <div class="row">
                     <div class="col-sm-6 mb-3">
                         <label class="form-label" for="ap-category">Catégorie <span class="text-danger">*</span></label>
                         <select class="form-select" name="for" id="ap-category" required>
                             <option name="for" value="" disabled hidden>Choisir une catégorie</option>
-                            <option value="rent">For rent</option>
-                            <option value="sale">For sale</option>
+                            <option value="À Louer">Louer</option>
+                            <option value="À Vendre">Vendre</option>
                         </select>
                     </div>
                     <div class="col-sm-6 mb-3">
@@ -116,7 +116,7 @@
                         <label class="btn btn-outline-secondary fw-normal" for="bedrooms-5">5+</label>
                     </div>
                 </div>
-                
+
                 <div class="mb-4">
                     <label class="form-label d-block fw-bold mb-2 pb-1">Salles de bains</label>
                     <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bathrooms">
@@ -130,7 +130,7 @@
                         <label class="btn btn-outline-secondary fw-normal" for="bathrooms-4">4</label>
                     </div>
                 </div>
-                
+
                 <div class="mb-4">
                     <label class="form-label d-block fw-bold mb-2 pb-1">Parking </label>
                     <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of parking spots">
@@ -144,10 +144,10 @@
                         <label class="btn btn-outline-secondary fw-normal" for="parking-4">4</label>
                     </div>
                 </div>
-                
+
 
                 <label class="form-label" for="ap-description">Description </label>
-                <textarea class="form-control" name="description" id="ap-description" rows="5" placeholder="Description de votre bien"></textarea><span class="form-text">1500 characters left</span>
+                <textarea class="form-control" name="description" id="ap-description" rows="5" placeholder="Description de votre bien"></textarea><span class="form-text"></span>
             </section>
             <!-- Price-->
             <section class="card card-body border-0 shadow-sm p-4 mb-4" id="price">
@@ -164,7 +164,7 @@
                     </select>
                 </div>
             </section>
-           
+
             <!-- Photos / video-->
             <section class="card card-body border-0 shadow-sm p-4 mb-4" >
                 <h2 class="h4 mb-4"><i class="fi-image text-primary fs-5 mt-n1 me-2"></i>Photos</h2>
@@ -205,20 +205,20 @@
             <!-- Action buttons -->
             <section class="d-sm-flex justify-content-between pt-2"><a class="btn btn-outline-primary btn-lg d-block mb-3 mb-sm-2" href="#preview-modal" data-bs-toggle="modal"><i class="fi-eye-on ms-n1 me-2"></i>Aperçu</a><button type="submit" class="btn btn-primary btn-lg d-block mb-2" >Sauvegarder </button></section>
         </form></div>
-       
+
         <!-- Progress of completion-->
         <aside class="col-lg-3 offset-lg-1 d-none d-lg-block">
             <div class="sticky-top pt-5">
-                <h6 class="pt-5 mt-3 mb-2">65% content filled</h6>
+                <h6 class="pt-5 mt-3 mb-2">65 % du contenu renseigné</h6>
                 <div class="progress mb-4" style="height: .25rem;">
                     <div class="progress-bar bg-warning" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 <ul class="list-unstyled">
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#basic-info" data-scroll data-scroll-offset="20">Basic info</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#location" data-scroll data-scroll-offset="20">Location</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#details" data-scroll data-scroll-offset="20">Property details</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-muted me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#price" data-scroll data-scroll-offset="20">Price</a></li>
-                    <li class="d-flex align-items-center"><i class="fi-check text-muted me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#photos" data-scroll data-scroll-offset="20">Photos / video</a></li>
+                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#basic-info" data-scroll data-scroll-offset="20">Informations de base</a></li>
+                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#location" data-scroll data-scroll-offset="20">Emplacement</a></li>
+                    <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#details" data-scroll data-scroll-offset="20">Détails de la propriété</a></li>
+                    <li class="d-flex align-items-center"><i class="fi-check text-muted me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#price" data-scroll data-scroll-offset="20">Prix</a></li>
+                    <li class="d-flex align-items-center"><i class="fi-check text-muted me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#photos" data-scroll data-scroll-offset="20">Photos / vidéo</a></li>
                     <li class="d-flex align-items-center"><i class="fi-check text-primary me-2"></i><a class="nav-link fw-normal ps-1 p-0" href="#contacts" data-scroll data-scroll-offset="20">Contacts</a></li>
                 </ul>
             </div>
