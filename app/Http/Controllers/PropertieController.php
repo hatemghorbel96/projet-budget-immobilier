@@ -20,10 +20,31 @@ class PropertieController extends Controller
 {
     public function index() {
 
-        $properties = Propertie::with('images')->get();
+        $properties = Propertie::with('images')->paginate(5);
 
        
         return view('backend.admin.properties.index',compact('properties'));
+    }
+
+    public function indexAjax(Request $request) {
+
+        $searchTerm = $request->input('search');
+
+        $properties = Propertie::with('images')->paginate(5);
+
+        if ($searchTerm) {
+
+            $properties = Propertie::with('images')->where('title', 'like', "%$searchTerm%")->paginate(5);
+        } else {
+
+            $properties = Propertie::with('images')->paginate(5);
+        }
+
+        if ($request->ajax()) {
+            return view('backend.admin.properties.ajax.ajax-index',compact('properties'))->render();
+           
+        }
+
     }
 
     public function create()
@@ -80,8 +101,18 @@ class PropertieController extends Controller
         }
 
        /*  return redirect()->route('properties.index')->with('success', 'Property created successfully.'); */
-       return redirect()->back()->with('success', 'Property created successfully.');
+       return redirect()->route('properties.index')->with('success', 'Property created successfully.');
+       
     }
 
+    public function deleteProperty(Request $request)
+    {
+        $propertyId = $request->input('property_id');
 
+        $property = Propertie::findOrFail($propertyId);
+        
+        $property->delete();
+
+        return response()->json(['success' => true, 'message' => 'Property deleted successfully']);
+    }
 }
