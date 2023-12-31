@@ -1,6 +1,6 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top bg-opacity-100" data-scroll-header>
 
-    <div class="container"><a class="navbar-brand me-3 me-xl-4" href="real-estate-home-v1.html"><img class="d-block" src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="60" alt="budget immobilier"></a>
+    <div class="container"><a class="navbar-brand me-3 me-xl-4" href="/"><img class="d-block" src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="50" alt="budget immobilier"></a>
 
 
 

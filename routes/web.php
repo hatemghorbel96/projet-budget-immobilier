@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -35,9 +36,11 @@ Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.
 Route::get('/update-profile', [ProfileController::class, 'infoperso'])->name('infoperso');
 Route::put('/save-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
 
-Route::get('/', function () {
+
+Route::get('/', [Controller::class, 'home'])->name('home');
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 /* Route::get('/dashboard', function () {
     return view('dashboard');
