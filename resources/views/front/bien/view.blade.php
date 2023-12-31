@@ -270,7 +270,7 @@
                         <img src="{{ asset($firstImage->path) }}" alt="Image">
                     </div>
                     <div class="card-body position-relative pb-3">
-                        <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">{{ $po->status }}</h4>
+                        <h4 class="mb-1 fs-xs fw-normal text-uppercase text-primary">Pour {{ $po->for }}</h4>
                         <h3 class="h6 mb-2 fs-base">
                             <a class="nav-link stretched-link" href="{{ route('bien.show', $po->id) }}">
                                 {{ $po->title }} | {{ $po->size }} sq.m
