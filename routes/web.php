@@ -92,8 +92,11 @@ Route::controller(RoleController::class)->group(function(){
 
 
     Route::get('/properties', [PropertieController::class, 'index'])->name('properties.index');
+    Route::get('/properties/list', [PropertieController::class, 'indexAjax'])->name('ajax.propertieback.fetch');
     Route::get('/properties/create', [PropertieController::class, 'create'])->name('properties.create');
     Route::post('/properties', [PropertieController::class, 'store'])->name('properties.store');
+  
+    Route::delete('/properties/delete', [PropertieController::class, 'deleteProperty'])->name('property.delete');
 
 
 require __DIR__.'/auth.php';

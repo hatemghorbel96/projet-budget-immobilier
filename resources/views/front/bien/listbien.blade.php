@@ -147,7 +147,7 @@
             </div>
             <!-- Sorting-->
             <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch my-2">
-                <div class="d-flex align-items-center flex-shrink-0">
+                {{-- <div class="d-flex align-items-center flex-shrink-0">
                     <label class="fs-sm me-2 pe-1 text-nowrap" for="sortby"><i
                             class="fi-arrows-sort text-muted mt-n1 me-2"></i>Sort by:</label>
                     <select class="form-select form-select-sm" id="sortby">
@@ -158,7 +158,7 @@
                         <option>High rating</option>
                         <option>Average Rating</option>
                     </select>
-                </div>
+                </div> --}}
                 <hr class="d-none d-sm-block w-100 mx-4">
                 <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted"><i
                         class="fi-check-circle me-2"></i><span class="fs-sm mt-n1">{{ $properties->count() }}
