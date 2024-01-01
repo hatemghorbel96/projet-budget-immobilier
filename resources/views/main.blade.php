@@ -39,7 +39,7 @@
    
   </head>
   <!-- Body-->
-  <body>
+  <body >
    
     
     <!-- Page loading spinner-->
@@ -50,16 +50,25 @@
     </div> --}}
     <main class="page-wrapper">
       <!-- Sign In Modal-->
-      
+      @php
+      $route = Route::current()->getName();
+      @endphp
       <!-- Navbar-->
+      @if($route ==  'login')
+      @else
       @include('front.body.header')
+      @endif
       <!-- Page content-->
       <!-- Property cost calculator modal-->
-      @include('front.body.modals')
+      {{-- @include('front.body.modals') --}}
       @yield('main')
     </main>
     <!-- Footer-->
+    
+    @if($route ==  'login')
+    @else
     @include('front.body.footer')
+    @endif
     <!-- Back to top button-->
     <a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
     <!-- Vendor scrits: js libraries and plugins-->
