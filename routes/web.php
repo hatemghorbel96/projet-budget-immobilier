@@ -26,12 +26,18 @@ Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index'
 Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show');
 Route::get('pagination/fetch_data', [BienController::class, 'getwithajax'])->name('ajax.pagination.fetch');
 
+Route::get('/list-bien', [BienController::class, 'allbien'])->name('all.bien.index');
+Route::get('list-bien/fetch_data', [BienController::class, 'getallwithajax'])->name('all.bien.pagination.fetch');
+
+
+Route::get('/search-bien', [BienController::class, 'listfromacceuil'])->name('all.bien.acceuil');
+Route::get('list-bien/search', [BienController::class, 'filter'])->name('all.bien.acceuil.fetch');
 
 //contact
 Route::get('/contact', [ContactController::class, 'contact'])->name('contact.send');
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.index');
-
+Route::get('/contact/view/{id}', [ContactController::class, 'show'])->name('contact.show');
 
 //userinfo
 Route::get('/update-profile', [ProfileController::class, 'infoperso'])->name('infoperso');

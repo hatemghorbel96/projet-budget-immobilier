@@ -36,7 +36,7 @@
       </thead>
       <tbody>
         @foreach ($contacts as $c)
-        <tr>
+        <tr @if ($c->readed==null) class="alert-secondary" @endif> 
             
             <td>{{$c->name}}</td>
             <td>{{$c->telephone}}</td>
@@ -48,8 +48,8 @@
                             class="fi-dots-vertical"></i></button>
                     <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
                         <li>
-                            <button class="dropdown-item" type="button"><i
-                                    class="fi-eye opacity-60 me-2"></i>View</button>
+                            <a href="{{route('contact.show',$c->id)}}" class="dropdown-item" type="button"><i
+                                    class="fi-eye-on opacity-60 me-2" ></i>View</a>
                         </li>
                         <li>
                             <button class="dropdown-item" type="button"><i

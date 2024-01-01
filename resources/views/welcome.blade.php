@@ -1,4 +1,5 @@
    @extends('main')
+   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
    <section class="container pt-5 my-5 pb-lg-4">
        <div class="row pt-0 pt-md-2 pt-lg-0">
            <div class="col-xl-7 col-lg-6 col-md-5 order-md-2 mb-4 mb-lg-3"><img
@@ -12,38 +13,40 @@
            </div>
            <!-- Search property form group-->
            <div class="col-xl-8 col-lg-10 order-3 mt-lg-n5">
-               <form class="form-group d-block">
+               <form class="form-group d-block" action="{{ route('all.bien.acceuil') }}" method="get">
+                   @csrf
                    <div class="row g-0 ms-sm-n2">
                        <div class="col-md-8 d-sm-flex align-items-center">
                            <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
                                <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button"
                                    data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span
-                                       class="dropdown-toggle-label">Louer / Vendre </span></button>
-                               <input type="hidden">
+                                       class="dropdown-toggle-label">rent / sale </span></button>
+                               <input type="hidden" name="rentSale">
                                <ul class="dropdown-menu">
                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">
-                                               Louer</span></a></li>
+                                               rent</span></a></li>
                                    <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">
-                                               Vendre</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">
-                                               Acheter</span></a></li>
+                                               sale</span></a></li>
+
                                </ul>
                            </div>
                            <hr class="d-sm-none my-2">
                            <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
                                <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button"
-                                   data-bs-toggle="dropdown"><i class="fi-map-pin me-2"></i><span
-                                       class="dropdown-toggle-label">Location</span></button>
-                               <input type="hidden">
+                                   data-bs-toggle="dropdown">
+                                   <i class="fi-map-pin me-2"></i><span
+                                       class="dropdown-toggle-label dropdown-toggle-label-location">Location</span>
+                               </button>
+
+                               <input type="hidden" name="location" id="selectedLocationId">
                                <ul class="dropdown-menu">
-                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">New
-                                               York</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Chicago</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">Los
-                                               Angeles</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">San
-                                               Diego</span></a></li>
+                                   @foreach ($locations as $item)
+                                       <li>
+                                           <div class="dropdown-item" data-location-id="{{ $item->id }}"><span
+                                                   class="dropdown-item-label"
+                                                   value="{{ $item->id }}">{{ $item->name }}</span></div>
+                                       </li>
+                                   @endforeach
                                </ul>
                            </div>
                            <hr class="d-sm-none my-2">
@@ -51,20 +54,15 @@
                                <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button"
                                    data-bs-toggle="dropdown"><i class="fi-list me-2"></i><span
                                        class="dropdown-toggle-label">Type de biens</span></button>
-                               <input type="hidden">
+                               <input type="hidden" name="propertyType">
                                <ul class="dropdown-menu">
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Appartements</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Duplex</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Ville</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Immeuble</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Terrain</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span
-                                               class="dropdown-item-label">Commerciale</span></a></li>
+                                   @foreach ($bientypes as $b)
+                                       <li>
+                                           <div class="dropdown-item"><span
+                                                   class="dropdown-item-label">{{ $b->name }}</span>
+                                           </div>
+                                       </li>
+                                   @endforeach
                                </ul>
                            </div>
                        </div>
@@ -72,14 +70,16 @@
                        <div class="col-md-4 d-sm-flex align-items-center pt-4 pt-md-0">
                            <div class="d-flex align-items-center w-100 pt-2 pb-4 py-sm-0 ps-2 ps-sm-3"><i
                                    class="fi-cash fs-lg text-muted me-2"></i><span class="text-muted">Price</span>
-                               <div class="range-slider pe-0 pe-sm-3" data-start-min="450" data-min="0"
-                                   data-max="1000" data-step="1">
+                               <div class="range-slider pe-0 pe-sm-3" data-start-min="0"
+                                   data-start-max="{{ $maxBudget }}" data-min="0" data-max="{{ $maxBudget }}"
+                                   data-step="1">
                                    <div class="range-slider-ui"></div>
-                                   <input class="form-control range-slider-value-min" type="hidden">
+                                   <input class="form-control range-slider-value-min" type="hidden" name="minPrice">
+                                   <input class="form-control range-slider-value-max" type="hidden" name="maxPrice">
                                </div>
                            </div>
-                           <button class="btn btn-icon btn-primary px-3 w-100 w-sm-auto flex-shrink-0" type="button"><i
-                                   class="fi-search"></i><span
+                           <button class="btn btn-icon btn-primary px-3 w-100 w-sm-auto flex-shrink-0 searchbtn"
+                               id="searchbtn" type="submit"><i class="fi-search"></i><span
                                    class="d-sm-none d-inline-block ms-2">Search</span></button>
                        </div>
                    </div>
@@ -88,7 +88,7 @@
        </div>
    </section>
    <!-- Property categories-->
-   <section class="container mb-5">
+   {{--  <section class="container mb-5">
        <div class="row row-cols-lg-6 row-cols-sm-3 row-cols-2 g-3 g-xl-4">
            <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
                    href="real-estate-catalog-rent.html">
@@ -96,22 +96,19 @@
                            class="fi-real-estate-house"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Maisons</h3>
                </a></div>
-           <div class="col"><a
-                   class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
+           <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
                    href="real-estate-catalog-sale.html">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-apartment"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Appartements</h3>
                </a></div>
-           <div class="col"><a
-                   class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
+           <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
                    href="real-estate-catalog-rent.html">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-shop"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Commerciale</h3>
                </a></div>
-           <div class="col"><a
-                   class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
+           <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
                    href="real-estate-catalog-sale.html">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-computer"></i></div>
@@ -133,23 +130,25 @@
                </a></div>
 
        </div>
-   </section>
+   </section> --}}
    <!-- Services-->
    <section class="container mb-5 mt-n3 mt-lg-0">
        <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush mx-n2">
-           <div class=" row gx-4 mx-0 py-3"
-              >
+           <div class=" row gx-4 mx-0 py-3">
                <div class="col-6">
-                   <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
-                           class="d-block mx-auto my-3"
-                           src="{{ asset('front/assets/img/real-estate/illustrations/buy.svg') }}" width="256"
-                           alt="Illustration">
+
+                   <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center">
+                       <a href="{{ route('bien.index', 'sale') }}"><img class="d-block mx-auto my-3"
+                               src="{{ asset('front/assets/img/real-estate/illustrations/buy.svg') }}" width="256"
+                               alt="Illustration">
+                       </a>
                        <div class="card-body">
                            <h2 class="h4 card-title">Acheter </h2>
                            <p class="card-text fs-sm">Explorez notre sélection de propriétés à vendre et trouvez la
                                maison de vos rêves dès aujourd'hui.</p>
                        </div>
                    </div>
+
                </div>
                {{--  <div class="col">
           <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img class="d-block mx-auto my-3" src="{{asset('front/assets/img/real-estate/illustrations/sell.svg')}}" width="256" alt="Illustration">
@@ -160,16 +159,19 @@
           </div>
         </div> --}}
                <div class="col-6">
-                   <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center"><img
-                           class="d-block mx-auto my-3"
-                           src="{{ asset('front/assets/img/real-estate/illustrations/rent.svg') }}" width="256"
-                           alt="Illustration">
+
+                   <div class="card card-hover border-0 h-100 pb-2 pb-sm-3 px-sm-3 text-center">
+                       <a href="{{ route('bien.index', 'rent') }}"><img class="d-block mx-auto my-3"
+                               src="{{ asset('front/assets/img/real-estate/illustrations/rent.svg') }}" width="256"
+                               alt="Illustration">
+                       </a>
                        <div class="card-body">
                            <h2 class="h4 card-title">Louer </h2>
                            <p class="card-text fs-sm">Parcourez nos locations disponibles, trouvez le lieu idéal pour
                                appeler chez vous.</p>
                        </div>
                    </div>
+
                </div>
            </div>
        </div>
@@ -179,7 +181,7 @@
    <section class="container mb-5 pb-md-4">
        <div class="d-flex align-items-center justify-content-between mb-3">
            <h2 class="h3 mb-0">Meilleures offres</h2><a class="btn btn-link fw-normal p-0"
-               href="real-estate-catalog-rent.html">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
+               href="{{ route('all.bien.index') }}">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
        </div>
        <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
            <div class="tns-carousel-inner row gx-4 mx-0 pt-3 pb-4"
@@ -221,7 +223,8 @@
                                    class="d-inline-block mx-1 px-2 fs-sm">2<i
                                        class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span
                                    class="d-inline-block mx-1 px-2 fs-sm">2<i
-                                       class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span></div>
+                                       class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span>
+                           </div>
                        </div>
                    </div>
                @endforeach
@@ -234,62 +237,66 @@
    <section class="container mb-5 pb-2">
        <div class="d-flex align-items-center justify-content-between mb-3">
            <h2 class="h3 mb-0">Rechercher des biens par ville</h2><a class="btn btn-link fw-normal ms-md-3 pb-0"
-               href="real-estate-catalog-rent.html">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
+               href="{{ route('all.bien.index') }}">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
        </div>
        <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
            <div class="tns-carousel-inner row gx-4 mx-0 py-md-4 py-3"
                data-carousel-options="{&quot;items&quot;: 4, &quot;responsive&quot;: {&quot;0&quot;:{&quot;items&quot;:1},&quot;500&quot;:{&quot;items&quot;:2},&quot;768&quot;:{&quot;items&quot;:3},&quot;992&quot;:{&quot;items&quot;:4}}}">
                <!-- Item-->
                @foreach ($locations as $location)
-                <div class="col">
-                    <a class="card shadow-sm card-hover border-0" href="real-estate-catalog-sale.html">
-                        <div class="card-img-top card-img-hover">
-                            <span class="img-overlay opacity-65"></span>
-                            <img src="{{ asset('front/assets/img/real-estate/city/new-york.jpg') }}" alt="New York">
-                            <div class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
-                                <div class="w-100 p-1">
-                                    <div class="mb-2">
-                                        <h4 class="mb-2 fs-xs fw-normal text-light">
-                                            <i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale
-                                        </h4>
-                                        <div class="d-flex align-items-center">
-                                            <div class="progress progress-light w-100">
-                                                <div class="progress-bar bg-danger" role="progressbar"
-                                                    style="width: {{ $location->properties->count() > 0 ? $location->getPropertyCountForSale() / $location->properties->count() * 100 : 0 }}%"
-                                                    aria-valuenow="{{ $location->properties->count() > 0 ? $location->getPropertyCountForSale() / $location->properties->count() * 100 : 0 }}"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div><span class="text-light fs-sm ps-1 ms-2">{{ $location->getPropertyCountForSale() }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="pt-1">
-                                        <h4 class="mb-2 fs-xs fw-normal text-light">
-                                            <i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent
-                                        </h4>
-                                        <div class="d-flex align-items-center">
-                                            <div class="progress progress-light w-100">
-                                                <div class="progress-bar bg-success" role="progressbar"
-                                                    style="width: {{ $location->properties->count() > 0 ? $location->getPropertyCountForRent() / $location->properties->count() * 100 : 0 }}%"
-                                                    aria-valuenow="{{ $location->properties->count() > 0 ? $location->getPropertyCountForRent() / $location->properties->count() * 100 : 0 }}"
-                                                    aria-valuemin="0" aria-valuemax="100"></div>
-                                            </div><span class="text-light fs-sm ps-1 ms-2">{{ $location->getPropertyCountForRent() }}</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h3 class="mb-0 fs-base text-nav">{{ $location->name }}</h3>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
+                   <div class="col">
+                       <a class="card shadow-sm card-hover border-0" href="real-estate-catalog-sale.html">
+                           <div class="card-img-top card-img-hover">
+                               <span class="img-overlay opacity-65"></span>
+                               <img src="{{ asset('front/assets/img/real-estate/city/new-york.jpg') }}"
+                                   alt="New York">
+                               <div
+                                   class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
+                                   <div class="w-100 p-1">
+                                       <div class="mb-2">
+                                           <h4 class="mb-2 fs-xs fw-normal text-light">
+                                               <i class="fi-wallet mt-n1 me-2 fs-sm align-middle"></i>Property for sale
+                                           </h4>
+                                           <div class="d-flex align-items-center">
+                                               <div class="progress progress-light w-100">
+                                                   <div class="progress-bar bg-danger" role="progressbar"
+                                                       style="width: {{ $location->properties->count() > 0 ? ($location->getPropertyCountForSale() / $location->properties->count()) * 100 : 0 }}%"
+                                                       aria-valuenow="{{ $location->properties->count() > 0 ? ($location->getPropertyCountForSale() / $location->properties->count()) * 100 : 0 }}"
+                                                       aria-valuemin="0" aria-valuemax="100"></div>
+                                               </div><span
+                                                   class="text-light fs-sm ps-1 ms-2">{{ $location->getPropertyCountForSale() }}</span>
+                                           </div>
+                                       </div>
+                                       <div class="pt-1">
+                                           <h4 class="mb-2 fs-xs fw-normal text-light">
+                                               <i class="fi-home mt-n1 me-2 fs-sm align-middle"></i>Property for rent
+                                           </h4>
+                                           <div class="d-flex align-items-center">
+                                               <div class="progress progress-light w-100">
+                                                   <div class="progress-bar bg-success" role="progressbar"
+                                                       style="width: {{ $location->properties->count() > 0 ? ($location->getPropertyCountForRent() / $location->properties->count()) * 100 : 0 }}%"
+                                                       aria-valuenow="{{ $location->properties->count() > 0 ? ($location->getPropertyCountForRent() / $location->properties->count()) * 100 : 0 }}"
+                                                       aria-valuemin="0" aria-valuemax="100"></div>
+                                               </div><span
+                                                   class="text-light fs-sm ps-1 ms-2">{{ $location->getPropertyCountForRent() }}</span>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                           <div class="card-body text-center">
+                               <h3 class="mb-0 fs-base text-nav">{{ $location->name }}</h3>
+                           </div>
+                       </a>
+                   </div>
+               @endforeach
 
 
            </div>
        </div>
    </section>
    <!-- Partners (carousel)-->
-   <section class="container mb-5 pb-2 pb-lg-4">
+   {{--   <section class="container mb-5 pb-2 pb-lg-4">
        <h2 class="h3 mb-4 text-center text-md-start">Our partners</h2>
        <div class="tns-carousel-wrapper tns-nav-outside tns-nav-outside-flush">
            <div class="tns-carousel-inner"
@@ -326,4 +333,38 @@
                            width="196"></a></div>
            </div>
        </div>
-   </section>
+   </section> --}}
+
+
+   <script>
+       $(document).ready(function() {
+
+
+           $('.dropdown-menu .dropdown-item[data-target="rentSale"]').on('click', function() {
+               var selectedValue = $(this).find('.dropdown-item-label').text();
+               $('input[name="rentSale"]').val(selectedValue);
+           });
+
+
+           $('.dropdown-menu .dropdown-item[data-target="location"]').on('click', function() {
+               var selectedLocationId = $(this).data('location-id');
+               $('#selectedLocationId').val(selectedLocationId);
+               var selectedLocationName = $(this).find('.dropdown-item-label').text();
+               $('.dropdown-toggle-label-location').text(selectedLocationName);
+           });
+
+
+           $('.dropdown-menu .dropdown-item[data-target="propertyType"]').on('click', function() {
+               var selectedValue = $(this).find('.dropdown-item-label').text();
+               $('input[name="propertyType"]').val(selectedValue);
+           });
+
+
+           $('.range-slider').on('input', function() {
+               var minPrice = $(this).find('.range-slider-value-min').val();
+               var maxPrice = $(this).find('.range-slider-value-max').val();
+               $('input[name="minPrice"]').val(minPrice);
+               $('input[name="maxPrice"]').val(maxPrice);
+           });
+       });
+   </script>
