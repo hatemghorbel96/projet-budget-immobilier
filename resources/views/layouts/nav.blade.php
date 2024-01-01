@@ -10,7 +10,7 @@
                 <h2 class="fs-lg mb-0">{{ auth()->user()->name }}</h2>
                 <ul class="list-unstyled fs-sm mt-3 mb-0">
                     <li><a class="nav-link fw-normal p-0" href="tel:3025550107"><i class="fi-phone opacity-60 me-2"></i>{{ auth()->user()->telephone }}</a></li>
-                    <li><a class="nav-link fw-normal p-0" href="mailto:annette_black@email.com"><i class="fi-mail opacity-60 me-2"></i>{{ auth()->user()->email }}</a></li>
+                    <li><a class="nav-link fw-normal p-0" ><i class="fi-mail opacity-60 me-2"></i>{{ auth()->user()->email }}</a></li>
                 </ul>
             </div>
         </div><a class="btn btn-primary btn-lg w-100 mb-3" href="{{route('properties.create')}}"><i class="fi-plus me-2"></i>Ajouter bien</a><a class="btn btn-outline-secondary d-block d-md-none w-100 mb-3" href="#account-nav" data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>Menu</a>

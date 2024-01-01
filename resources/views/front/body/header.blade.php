@@ -1,6 +1,6 @@
 <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top bg-opacity-100" data-scroll-header>
 
-    <div class="container"><a class="navbar-brand me-3 me-xl-4" href=""><img class="d-block" src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="60" alt="budget immobilier"></a>
+    <div class="container"><a class="navbar-brand me-3 me-xl-4" href="/"><img class="d-block" src="{{asset('LOGO_BUDGET_IMMO_FINAL.png')}}" width="50" alt="budget immobilier"></a>
 
 
 
@@ -18,7 +18,6 @@
           </div>
             <a class="dropdown-item" href="{{ route('infoperso') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
             <a class="dropdown-item" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
-            <a class="dropdown-item" href="{{ route('contact.index') }}"><i class="fi-mail opacity-60 me-2"></i>Contacts</a>
           <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('user.logout') }}" >Déconnexion</a>
         </div>
       </div>

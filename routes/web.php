@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -23,6 +24,7 @@ use App\Http\Controllers\backend\ContactController;
 //bien
 Route::get('/bien/{type?}', [BienController::class, 'index'])->name('bien.index');
 Route::get('/bien/view/{id}', [BienController::class, 'show'])->name('bien.show');
+Route::get('pagination/fetch_data', [BienController::class, 'getwithajax'])->name('ajax.pagination.fetch');
 
 
 //contact
@@ -35,9 +37,11 @@ Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.
 Route::get('/update-profile', [ProfileController::class, 'infoperso'])->name('infoperso');
 Route::put('/save-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
 
-Route::get('/', function () {
+
+Route::get('/', [Controller::class, 'home'])->name('home');
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -88,8 +92,11 @@ Route::controller(RoleController::class)->group(function(){
 
 
     Route::get('/properties', [PropertieController::class, 'index'])->name('properties.index');
+    Route::get('/properties/list', [PropertieController::class, 'indexAjax'])->name('ajax.propertieback.fetch');
     Route::get('/properties/create', [PropertieController::class, 'create'])->name('properties.create');
     Route::post('/properties', [PropertieController::class, 'store'])->name('properties.store');
+  
+    Route::delete('/properties/delete', [PropertieController::class, 'deleteProperty'])->name('property.delete');
 
 
 require __DIR__.'/auth.php';
