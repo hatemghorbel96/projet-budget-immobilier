@@ -21,7 +21,12 @@
             <div class="card-nav">
                 <a class="card-nav-link {{ ($route ==  'infoperso')? 'active':  '' }}" href="{{ route('infoperso') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
                 <a class="card-nav-link {{ ($route ==  'properties.index')? 'active':  '' }}" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
-                <a class="card-nav-link {{ ($route ==  'contact.index')? 'active':  '' }}" href="{{ route('contact.index') }}"><i class="fi-mail opacity-60 me-2"></i>Contacts</a>
+                @php
+                    $nbcont = \App\Models\Contact::whereNull('readed')->count();
+                    $badge = ($nbcont == 0) ? 'bg-success' : 'bg-danger';
+                @endphp
+                <a class="card-nav-link {{ ($route ==  'contact.index')? 'active':  '' }}" href="{{ route('contact.index') }}"><i class="fi-mail opacity-60 me-2"></i>Contacts <span class="fs-xxs badge {{ $badge }} text-white ms-2 fs-8">{{$nbcont}}</span></a>
+                
                 <a class="card-nav-link " href="{{ route('user.logout') }}"><i class="fi-logout opacity-60 me-2"></i>Déconnexion</a></div>
         </div>
     </div>

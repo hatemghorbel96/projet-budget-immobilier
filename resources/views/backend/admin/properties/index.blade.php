@@ -31,27 +31,28 @@
                 <li class="nav-item mb-3"><a class="nav-link" href="#" role="tab" aria-selected="false"><i
                             class="fi-archive fs-base me-2"></i>Archived</a></li>
             </ul> --}}
-                @if (session('success'))
-                    <div class="alert alert-success">
-                        {{ session('success') }}
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            <div class="border-0 mx-n3 p-3 mt-3">
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-4">
+                        <div class="input-group">
+                            <i class="fi-search position-absolute text-muted top-50 translate-middle-y ps-1 ms-2"></i>
+                            <input class="form-control text-sm rounded-2" type="text" placeholder="Recherche ..."
+                                id="kt_filter_search">
+                        </div>
                     </div>
-                @endif
-                    <div class="border-0 mx-n3 p-3 mt-3">
-                       <div class="row">
-                            <div class="col"></div>
-                            <div class="col-4">
-                                <div class="input-group">
-                                    <i class="fi-search position-absolute text-muted top-50 translate-middle-y ps-1 ms-2"></i>
-                                    <input class="form-control text-sm rounded-2" type="text" placeholder="Recherche ..." id="kt_filter_search">
-                                    </div>
-                            </div>
-                       </div>
-                  </div>
-                    <div id="table_data">
-                        @include('backend.admin.properties.ajax.ajax-index')
-                    </div>
+                </div>
+            </div>
+            <div id="table_data">
+                @include('backend.admin.properties.ajax.ajax-index')
+            </div>
 
-           
+
         </div>
 
     </div>
@@ -61,7 +62,7 @@
     $('#kt_filter_search').on('input', function() {
         var searchTerm = $(this).val();
 
-       
+
         var url = "{{ route('ajax.propertieback.fetch') }}";
 
         $.ajax({
@@ -85,13 +86,13 @@
     });
 
     function fetch_data(page) {
-       
+
         var url = "{{ route('ajax.propertieback.fetch') }}";
 
         $.ajax({
             url: url + "?page=" + page,
             method: 'GET',
-           
+
             success: function(data) {
                 $('#table_data').html(data);
             },
@@ -108,13 +109,13 @@
             }
         });
         Swal.fire({
-            title: 'Are you sure?',
-            text: 'You won\'t be able to revert this!',
+            title: 'Es-tu sûr?',
+            text: 'Vous ne pourrez pas revenir en arrière !',
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Oui, supprimez-le !'
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -125,17 +126,20 @@
                     },
                     success: function(response) {
                         if (response.success) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Property has been deleted.',
-                                'success'
-                            );
-                           
+
+                            Swal.fire({
+                                title: "Supprimé !",
+                                text: 'La propriété a été supprimée.',
+                                icon: "success",
+                                timer: 1500,
+                                showConfirmButton: false
+                            });
+
                             fetch_data(1);
                         } else {
                             Swal.fire(
                                 'Error!',
-                                'Failed to delete property. Please try again.',
+                                'Échec de la suppression de la propriété. Veuillez réessayer.',
                                 'error'
                             );
                         }

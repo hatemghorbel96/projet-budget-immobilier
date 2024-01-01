@@ -63,7 +63,7 @@ class PropertieController extends Controller
        
        $data = $request->except('images');
        $data['user_id'] = $user_id;
-
+       $data['views'] = 0;
        $property = Propertie::create($data);
 
         if ($request->hasFile('images')) {
