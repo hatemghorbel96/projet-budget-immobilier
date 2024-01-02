@@ -20,13 +20,17 @@
                            <div class="dropdown w-sm-50 border-end-sm" data-bs-toggle="select">
                                <button class="btn btn-link dropdown-toggle ps-2 ps-sm-3" type="button"
                                    data-bs-toggle="dropdown"><i class="fi-home me-2"></i><span
-                                       class="dropdown-toggle-label">rent / sale </span></button>
+                                       class="dropdown-toggle-label">Louer / Acheter </span></button>
                                <input type="hidden" name="rentSale">
                                <ul class="dropdown-menu">
-                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">
-                                               rent</span></a></li>
-                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label">
-                                               sale</span></a></li>
+                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label" >
+                                               louer</span>
+                                              
+                                               </a></li>
+                                   <li><a class="dropdown-item" href="#"><span class="dropdown-item-label" >
+                                    vente</span>
+                                              
+                                               </a></li>
 
                                </ul>
                            </div>
@@ -69,7 +73,7 @@
                        <hr class="d-md-none mt-2">
                        <div class="col-md-4 d-sm-flex align-items-center pt-4 pt-md-0">
                            <div class="d-flex align-items-center w-100 pt-2 pb-4 py-sm-0 ps-2 ps-sm-3"><i
-                                   class="fi-cash fs-lg text-muted me-2"></i><span class="text-muted">Price</span>
+                                   class="fi-cash fs-lg text-muted me-2"></i><span class="text-muted">Prix</span>
                                <div class="range-slider pe-0 pe-sm-3" data-start-min="0"
                                    data-start-max="{{ $maxBudget }}" data-min="0" data-max="{{ $maxBudget }}"
                                    data-step="1">
@@ -80,7 +84,7 @@
                            </div>
                            <button class="btn btn-icon btn-primary px-3 w-100 w-sm-auto flex-shrink-0 searchbtn"
                                id="searchbtn" type="submit"><i class="fi-search"></i><span
-                                   class="d-sm-none d-inline-block ms-2">Search</span></button>
+                                   class="d-sm-none d-inline-block ms-2">Recherche</span></button>
                        </div>
                    </div>
                </form>
@@ -180,7 +184,7 @@
    <!-- Top offers (carousel)-->
    <section class="container mb-5 pb-md-4">
        <div class="d-flex align-items-center justify-content-between mb-3">
-           <h2 class="h3 mb-0">Meilleures offres</h2><a class="btn btn-link fw-normal p-0"
+           <h2 class="h3 mb-0">Annonces </h2><a class="btn btn-link fw-normal p-0"
                href="{{ route('all.bien.index') }}">Afficher tout<i class="fi-arrow-long-right ms-2"></i></a>
        </div>
        <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
@@ -193,8 +197,8 @@
                            <div class="card-img-top card-img-hover"><a class="img-overlay"
                                    href="{{ route('bien.show', $po->id) }}"></a>
                                <div class="position-absolute start-0 top-0 pt-3 ps-3"><span
-                                       class="d-table badge bg-success mb-1">Verified</span><span
-                                       class="d-table badge bg-info">New</span></div>
+                                       class="d-table badge bg-success mb-1">{{ $po->bientype->name }}</span><span
+                                       class="d-table badge bg-info">Nouveau</span></div>
                                <div class="content-overlay end-0 top-0 pt-3 pe-3">
                                    <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle"
                                        type="button" data-bs-toggle="tooltip" data-bs-placement="left"
@@ -218,11 +222,11 @@
                            </div>
                            <div
                                class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap">
-                               <span class="d-inline-block mx-1 px-2 fs-sm">3<i
+                               <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->rooms }}<i
                                        class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span><span
-                                   class="d-inline-block mx-1 px-2 fs-sm">2<i
+                                   class="d-inline-block mx-1 px-2 fs-sm">{{ $po->bathroom }}<i
                                        class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span><span
-                                   class="d-inline-block mx-1 px-2 fs-sm">2<i
+                                   class="d-inline-block mx-1 px-2 fs-sm">{{ $po->parking }}<i
                                        class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span>
                            </div>
                        </div>
@@ -341,10 +345,11 @@
 
 
            $('.dropdown-menu .dropdown-item[data-target="rentSale"]').on('click', function() {
-               var selectedValue = $(this).find('.dropdown-item-label').text();
+               var selectedValue = $(this).find('.dropdown-item-gg').text();
                $('input[name="rentSale"]').val(selectedValue);
+               
            });
-
+          
 
            $('.dropdown-menu .dropdown-item[data-target="location"]').on('click', function() {
                var selectedLocationId = $(this).data('location-id');

@@ -23,7 +23,7 @@
                     <div class="pb-4 mb-2">
                         <h3 class="h6">Location</h3>
                         <select class="form-select mb-2" id="location_filter">
-                            <option value="">Choose city</option>
+                            <option value="">Choisir la ville</option>
                             @foreach ($locations as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -33,7 +33,7 @@
 
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6">Property type</h3>
+                        <h3 class="h6">Type de propriété</h3>
                         <div class="overflow-auto" data-simplebar data-simplebar-auto-hide="false"
                             style="height: 11rem;">
 
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6">Property price</h3>
+                        <h3 class="h6">Prix ​​de l'immobilier</h3>
                         <div class="range-slider" data-start-min="0" data-start-max="{{ $maxBudget  }}"
                             data-min="0" data-max="{{ $maxBudget }}" data-step="1">
                             <div class="range-slider-ui"></div>
@@ -69,9 +69,9 @@
                         </div>
                     </div>
                     <div class="pb-4 mb-2">
-                        <h3 class="h6 pt-1">Beds &amp; baths</h3>
+                        <h3 class="h6 pt-1">Chambres &amp; Salle de bain</h3>
                         <!-- Bedrooms Section -->
-                        <label class="d-block fs-sm mb-1">Bedrooms</label>
+                        <label class="d-block fs-sm mb-1">Chambres</label>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bedrooms">
                             <input class="btn-check" type="radio" id="studio" name="bedrooms" value="null">
                             <label class="btn btn-outline-secondary fw-normal" for="studio">Studio</label>
@@ -85,10 +85,10 @@
                             <label class="btn btn-outline-secondary fw-normal" for="bedrooms-4">4</label>
                         </div>
                         <!-- Bathrooms Section -->
-                        <label class="d-block fs-sm pt-2 my-1">Bathrooms</label>
+                        <label class="d-block fs-sm pt-2 my-1">Salle de bain</label>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Choose number of bathrooms">
                             <input class="btn-check" type="radio" id="bathrooms" name="bathrooms" value="null">
-                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms">Bathroom</label>
+                            <label class="btn btn-outline-secondary fw-normal" for="bathrooms">Salle de bain</label>
                             <input class="btn-check" type="radio" id="bathrooms-1" name="bathrooms"
                                 value="1">
                             <label class="btn btn-outline-secondary fw-normal" for="bathrooms-1">1</label>
@@ -109,10 +109,9 @@
 
 
                     <div class="border-top py-4">
-                        <button class="btn btn-outline-primary" type="button" id="apply_filters_btn">Apply
-                            Filters</button>
-                        <button class="btn btn-outline-secondary" type="button" id="reset_filters_btn">Reset
-                            Filters</button>
+                        <button class="btn btn-outline-primary" type="button" id="apply_filters_btn">Appliquer
+                            </button>
+                        <button class="btn btn-outline-secondary" type="button" id="reset_filters_btn">Réinitialiser les filtres</button>
                     </div>
                 </div>
             </div>
@@ -124,13 +123,13 @@
             <!-- Breadcrumb-->
             <nav class="mb-3 pt-md-2" aria-label="Breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">All Properties</li>
+                    <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Toutes les propriétés</li>
                 </ol>
             </nav>
             <!-- Title-->
             <div class="d-sm-flex align-items-center justify-content-between pb-3 pb-sm-4">
-                <h1 class="h2 mb-sm-0">All Properties</h1>
+                <h1 class="h2 mb-sm-0">Toutes les propriétés</h1>
             </div>
             <!-- Sorting-->
             <div class="d-flex flex-sm-row flex-column align-items-sm-center align-items-stretch my-2">
@@ -149,7 +148,7 @@
                 <hr class="d-none d-sm-block w-100 mx-4">
                 <div class="d-none d-sm-flex align-items-center flex-shrink-0 text-muted"><i
                         class="fi-check-circle me-2"></i><span class="fs-sm mt-n1">{{ $properties->count() }}
-                        results</span></div>
+                        resultats</span></div>
             </div>
             <!-- Catalog grid-->
             <div class="row g-4 py-4" id="table_data">
