@@ -234,6 +234,7 @@
                 success: function (data) {
                     console.log('Received data:', data);
                     $('#table_data').html(data);
+                    
                 }
             });
         }

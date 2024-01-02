@@ -72,21 +72,22 @@
     <!-- Back to top button-->
     <a class="btn-scroll-top" href="#top" data-scroll><span class="btn-scroll-top-tooltip text-muted fs-sm me-2">Top</span><i class="btn-scroll-top-icon fi-chevron-up">   </i></a>
     <!-- Vendor scrits: js libraries and plugins-->
+    <script src="{{asset('front/assets/vendor/tiny-slider/dist/min/tiny-slider.js')}}"></script>
     <script src="{{asset('front/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/simplebar/dist/simplebar.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/smooth-scroll/dist/smooth-scroll.polyfills.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/nouislider/dist/nouislider.min.js')}}"></script>
-    <script src="{{asset('front/assets/vendor/tiny-slider/dist/min/tiny-slider.js')}}"></script>
+ 
     <!-- Main theme script-->
 
 
 
-
+{{-- 
     <script src="{{asset('front/assets/vendor/lightgallery/lightgallery.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/lightgallery/plugins/fullscreen/lg-fullscreen.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/lightgallery/plugins/zoom/lg-zoom.min.js')}}"></script>
     <script src="{{asset('front/assets/vendor/lightgallery/plugins/thumbnail/lg-thumbnail.min.js')}}"></script>
-    <script src="{{asset('front/assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script>
+    <script src="{{asset('front/assets/vendor/flatpickr/dist/flatpickr.min.js')}}"></script> --}}
 
 
 
