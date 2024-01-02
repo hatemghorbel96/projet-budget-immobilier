@@ -1,4 +1,5 @@
-                   
+
+      
                    @foreach ($properties as $p)
                         <div class="col-sm-6 col-xl-4">
                             <div class="card shadow-sm card-hover border-0 h-100">
@@ -12,10 +13,13 @@
                                             type="button" data-bs-toggle="tooltip" data-bs-placement="left"
                                             title="Add to Wishlist"><i class="fi-heart"></i></button>
                                     </div>
-                                    <div class="tns-carousel-inner">
-                                        @foreach ($p->images as $image)
-                                            <img src="{{ asset($image->path) }}" alt="Image">
-                                        @endforeach
+                                    <div class="{{-- tns-carousel-inner --}}">
+                                        @php
+                                            $firstImage = $p->images->first();
+                                        @endphp
+                                       {{--  @foreach ($p->images as $image) --}}
+                                            <img src="{{ asset($firstImage->path) }}" alt="Image">
+                                       {{--  @endforeach --}}
                                     </div>
                                 </div>
                                 <div class="card-body position-relative pb-3">
@@ -43,5 +47,7 @@
                     {!! $properties->links('vendor.pagination.bootstrap-5') !!}
                     </nav>
 
+
+                    
 
                     
