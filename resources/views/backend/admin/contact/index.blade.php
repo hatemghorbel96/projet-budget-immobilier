@@ -4,7 +4,7 @@
     <!-- Breadcrumb-->
     <nav class="mb-4 pt-md-3" aria-label="Breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Accueil</a></li>
+            <li class="breadcrumb-item"><a href="/">Accueil</a></li>
             <li class="breadcrumb-item"><a href="real-estate-account-info.html">Compte</a></li>
             <li class="breadcrumb-item active" aria-current="page">Contacts</li>
         </ol>
@@ -16,7 +16,7 @@
         <!-- Content-->
         <div class="col-lg-8 col-md-7 mb-5">
             <div class="d-flex align-items-center justify-content-between mb-3">
-                <h1 class="h2 mb-0">Contacts</h1><a class="fw-bold text-decoration-none" href="#"><i class="fi-trash mt-n1 me-2"></i>Delete all</a>
+                <h1 class="h2 mb-0">Contacts</h1>{{-- <a class="fw-bold text-decoration-none" href="#"><i class="fi-trash mt-n1 me-2"></i>Delete all</a> --}}
             </div>
             <p class="pt-1 mb-4">Ici, vous pouvez voir vos offres immobilières et les modifier facilement.</p>
             <!-- Nav tabs-->

@@ -201,8 +201,9 @@ class BienController extends Controller
         $query = Propertie::with('images')->with('location')->with('bientype');
 
         if ($request->input('rentSale')!=null) {
-           
-            $query->where('for', $request->input('rentSale'))->paginate(2);
+            $rent = ($request->input('rentSale') == 'louer' ? 'rent' : 'sale');
+           /*  dump($rent); */
+            $query->where('for', $rent)->paginate(2);
             $maxBudget = $query->max('budget');
             $properties = $query->paginate(2);
         }
@@ -247,7 +248,7 @@ class BienController extends Controller
         $bientypes = Bientype::whereHas('properties')->get();
 
         if ( $request->input('propertyType') == null && $request->input('rentSale') == null  && $request->input('location') == null) {
-            dump('all');
+            /* dump('all'); */
             $properties =  Propertie::with('images')->with('location')->with('bientype')->paginate(2);
 
             $maxBudget = $properties->max('budget');

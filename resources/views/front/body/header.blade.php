@@ -18,6 +18,7 @@
           </div>
             <a class="dropdown-item" href="{{ route('infoperso') }} "><i class="fi-user opacity-60 me-2"></i>Informations Personnelles</a>
             <a class="dropdown-item" href="{{ route('properties.index') }}"><i class="fi-home opacity-60 me-2"></i>Mes biens</a>
+            <a class="dropdown-item" href="{{ route('contact.index') }}"><i class="fi-mail opacity-60 me-2"></i>Contacts</a>
           <div class="dropdown-divider"></div><a class="dropdown-item" href="{{ route('user.logout') }}" >Déconnexion</a>
         </div>
       </div>
@@ -52,12 +53,16 @@
             </ul>
           </li> --}}
           <!-- Menu items-->
-          <li class="nav-item dropdown active"><a class="nav-link " href="{{route('bien.index','sale')}}" role="button" >Acheter</a>
+          @php
+          $type = request('type');
+          $route = Route::current()->getName();
+          @endphp
+          <li class="nav-item dropdown "><a class="nav-link @if($type == 'sale' && $route == 'bien.index') active @endif" href="{{route('bien.index','sale')}}" role="button" >Acheter</a>
           </li>
 
-          <li class="nav-item dropdown "><a class="nav-link " href="{{route('bien.index','rent')}}" role="button" >Louer</a>
+          <li class="nav-item dropdown "><a class="nav-link @if($type == 'rent' && $route == 'bien.index') active @endif" href="{{route('bien.index','rent')}}" role="button" >Louer</a>
           </li>
-            <li class="nav-item dropdown "><a class="nav-link " href="{{route('contact.send')}}" role="button" >Contact</a>
+            <li class="nav-item dropdown "><a class="nav-link @if($route=='contact.send') active @endif" href="{{route('contact.send')}}" role="button" >Contact</a>
             </li>
 
 

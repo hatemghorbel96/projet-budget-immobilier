@@ -5,28 +5,28 @@
         <!-- Breadcrumb-->
         <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
                 <li class="breadcrumb-item"><a href="real-estate-catalog-rent.html">Property for rent</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $p->title }}</li>
             </ol>
         </nav>
         <h1 class="h2 mb-2">{{ $p->title }}</h1>
-        <p class="mb-2 pb-1 fs-lg">28 Jackson Ave Long Island City, NY 67234</p>
+        <p class="mb-2 pb-1 fs-lg">{{$p->address}}, {{$p->location->name}}</p>
         <!-- Features + Sharing-->
         <div class="d-flex justify-content-between align-items-center">
             <ul class="d-flex mb-4 list-unstyled">
-                <li class="me-3 pe-3 border-end"><b class="me-1">4</b><i
+                <li class="me-3 pe-3 border-end"><b class="me-1">{{$p->rooms}}</b><i
                         class="fi-bed mt-n1 lead align-middle text-muted"></i></li>
-                <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i
+                <li class="me-3 pe-3 border-end"><b class="me-1">{{$p->bathroom}}</b><i
                         class="fi-bath mt-n1 lead align-middle text-muted"></i></li>
-                <li class="me-3 pe-3 border-end"><b class="me-1">2</b><i
+                <li class="me-3 pe-3 border-end"><b class="me-1">{{$p->parking}}</b><i
                         class="fi-car mt-n1 lead align-middle text-muted"></i></li>
                 <li><b>56 </b>sq.m</li>
             </ul>
             <div class="text-nowrap">
-                <button class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2" type="button"
-                    data-bs-toggle="tooltip" title="Add to Wishlist"><i class="fi-heart"></i></button>
-                <div class="dropdown d-inline-block" data-bs-toggle="tooltip" title="Share">
+              {{--   <button class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2" type="button"
+                    data-bs-toggle="tooltip" title="Add to Wishlist"><i class="fi-heart"></i></button> --}}
+                {{-- <div class="dropdown d-inline-block" data-bs-toggle="tooltip" title="Share">
                     <button class="btn btn-icon btn-light-primary btn-xs shadow-sm rounded-circle ms-2 mb-2"
                         type="button" data-bs-toggle="dropdown"><i class="fi-share"></i></button>
                     <div class="dropdown-menu dropdown-menu-end my-1">
@@ -37,7 +37,7 @@
                         <button class="dropdown-item" type="button"><i
                                 class="fi-instagram fs-base opacity-75 me-2"></i>Instagram</button>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -118,10 +118,14 @@
     <!-- Post content-->
     <section class="container mb-5 pb-1">
         <div class="row">
-            <div class="col-md-7 mb-md-0 mb-4"><span class="badge bg-success me-2 mb-3">Verified</span><span
-                    class="badge bg-info me-2 mb-3">New</span>
-                <h2 class="h3 mb-4 pb-4 border-bottom">{{ $p->budget }} DT<span
-                        class="d-inline-block ms-1 fs-base fw-normal text-body">/month</span></h2>
+            <div class="col-md-7 mb-md-0 mb-4"><span class="badge bg-success me-2 mb-3">{{$p->bientype->name}}</span><span
+                    class="badge bg-info me-2 mb-3">Nouveau</span>
+                <h2 class="h3 mb-4 pb-4 border-bottom">{{ $p->budget }} DT
+                    @if($p->for == 'rent')
+                    <span
+                        class="d-inline-block ms-1 fs-base fw-normal text-body">/mois</span>
+                    @endif
+                    </h2>
                 <!-- Overview-->
 
 
@@ -144,11 +148,11 @@
                     <h3 class="h4">Property Details</h3>
                     <ul class="list-unstyled mb-0">
                         <li><b>Type: </b>{{ $p->bientype->name }}</li>
-                        <li><b>Apartment area: </b>{{ $p->surface }}</li>
-                        <li><b>Built: </b>2015</li>
-                        <li><b>Bedrooms: </b>4</li>
-                        <li><b>Bathrooms: </b>{{ $p->bathrooms }}</li>
-                        <li><b>Parking places: </b>{{ $p->parking }}</li>
+                        <li><b>Quartier appartement: </b>{{ $p->surface }}</li>
+                        <li><b>Construite: </b>{{ $p->builded }}</li>
+                        <li><b>Chambres: </b>{{ $p->rooms }}</li>
+                        <li><b>Chambres: </b>{{ $p->bathrooms }}</li>
+                        <li><b>Garage: </b>{{ $p->parking }}</li>
                         {{--   <li><b>Pets allowed: </b>cats only</li> --}}
                     </ul>
                 </div>
@@ -228,8 +232,8 @@
     <!-- Recently viewed-->
     <section class="container mb-5 pb-2 pb-lg-4">
         <div class="d-flex align-items-center justify-content-between mb-3">
-            <h2 class="h3 mb-0">Recently viewed</h2><a class="btn btn-link fw-normal p-0"
-                href="real-estate-catalog-rent.html">View all<i class="fi-arrow-long-right ms-2"></i></a>
+            <h2 class="h3 mb-0">Tu peux aimer</h2><a class="btn btn-link fw-normal p-0"
+                href="{{ route('all.bien.index') }}">Voir tout<i class="fi-arrow-long-right ms-2"></i></a>
         </div>
         <div class="tns-carousel-wrapper tns-controls-outside-xxl tns-nav-outside tns-nav-outside-flush mx-n2">
             <div class="tns-carousel-inner row gx-4 mx-0 pt-3 pb-4"
@@ -240,8 +244,8 @@
                             <div class="card-img-top card-img-hover">
                                 <a class="img-overlay" href="{{ route('bien.show', $po->id) }}"></a>
                                 <div class="position-absolute start-0 top-0 pt-3 ps-3">
-                                    <span class="d-table badge bg-success mb-1">Verified</span>
-                                    <span class="d-table badge bg-info">New</span>
+                                    <span class="d-table badge bg-success mb-1">{{$p->bientype->name}}</span>
+                                    <span class="d-table badge bg-info">Nouveau</span>
                                 </div>
                                 <div class="content-overlay end-0 top-0 pt-3 pe-3">
                                     <button class="btn btn-icon btn-light btn-xs text-primary rounded-circle"
@@ -271,11 +275,11 @@
                             </div>
                             <div
                                 class="card-footer d-flex align-items-center justify-content-center mx-3 pt-3 text-nowrap">
-                                <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->bedrooms }}<i
+                                <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->rooms }}<i
                                         class="fi-bed ms-1 mt-n1 fs-lg text-muted"></i></span>
-                                <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->bathrooms }}<i
+                                <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->bathroom }}<i
                                         class="fi-bath ms-1 mt-n1 fs-lg text-muted"></i></span>
-                                <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->garages }}<i
+                                <span class="d-inline-block mx-1 px-2 fs-sm">{{ $po->parking }}<i
                                         class="fi-car ms-1 mt-n1 fs-lg text-muted"></i></span>
                             </div>
                         </div>
