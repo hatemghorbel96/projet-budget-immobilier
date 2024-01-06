@@ -13,8 +13,8 @@
         <!-- Breadcrumb-->
         <nav class="mb-4 pt-md-3" aria-label="Breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="real-estate-home-v1.html">Accueil</a></li>
-                <li class="breadcrumb-item"><a href="real-estate-account-info.html">Compte</a></li>
+                <li class="breadcrumb-item"><a href="/">Accueil</a></li>
+                <li class="breadcrumb-item"><a href="/">Compte</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Informations personnelles</li>
             </ol>
         </nav>

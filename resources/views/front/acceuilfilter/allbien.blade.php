@@ -124,7 +124,7 @@
 
                     <div class="border-top py-4">
                         <button class="btn btn-outline-primary" type="button" id="apply_filters_btn">Appliquer</button>
-                        <button class="btn btn-outline-secondary" type="button" id="reset_filters_btn">Réinitialiser les filtres</button>
+                        <button class="btn btn-outline-secondary" type="button" id="reset_filters_btn">Réinitialiser</button>
                     </div>
                 </div>
             </div>
