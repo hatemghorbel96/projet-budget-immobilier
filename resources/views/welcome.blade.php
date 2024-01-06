@@ -95,39 +95,39 @@
    {{--  <section class="container mb-5">
        <div class="row row-cols-lg-6 row-cols-sm-3 row-cols-2 g-3 g-xl-4">
            <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
-                   href="real-estate-catalog-rent.html">
+                   href="/">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-real-estate-house"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Maisons</h3>
                </a></div>
            <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
-                   href="real-estate-catalog-sale.html">
+                   href="/">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-apartment"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Appartements</h3>
                </a></div>
            <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
-                   href="real-estate-catalog-rent.html">
+                   href="/">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-shop"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Commerciale</h3>
                </a></div>
            <div class="col"><a class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
-                   href="real-estate-catalog-sale.html">
+                   href="/">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-computer"></i></div>
                    <h3 class="icon-box-title fs-base mb-0">Bureaux</h3>
                </a></div>
            <div class="col"><a
                    class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
-                   href="real-estate-catalog-rent.html">
+                   href="/">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-house-chosen"></i></div>
                    <h3 class="icon-box-title fs-base mb-0"> Bâtiments</h3>
                </a></div>
            <div class="col"><a
                    class="icon-box card card-body h-100 border-0 shadow-sm card-hover h-100 text-center"
-                   href="real-estate-catalog-rent.html">
+                   href="/">
                    <div class="icon-box-media bg-faded-primary text-primary rounded-circle mb-3 mx-auto"><i
                            class="fi-real-estate-buy"></i></div>
                    <h3 class="icon-box-title fs-base mb-0"> Terrain</h3>
@@ -249,7 +249,7 @@
                <!-- Item-->
                @foreach ($locations as $location)
                    <div class="col">
-                       <a class="card shadow-sm card-hover border-0" href="real-estate-catalog-sale.html">
+                       <a class="card shadow-sm card-hover border-0" {{-- href="/" --}}>
                            <div class="card-img-top card-img-hover">
                                <span class="img-overlay opacity-65"></span>
                                <img src="{{ asset('front/assets/img/real-estate/city/new-york.jpg') }}"
