@@ -51,4 +51,15 @@ class ContactController extends Controller
 
         return view('backend.admin.contact.view', compact('c'));
     }
+
+
+    public function delete($id)
+    {
+        $c = Contact::findOrFail($id);
+
+        $c->delete();
+       
+
+        return redirect()->route('contact.index')->with('success', 'Contact supprimé avec succès!');
+    }
 }

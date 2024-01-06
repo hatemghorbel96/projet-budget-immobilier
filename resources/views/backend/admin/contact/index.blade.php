@@ -20,7 +20,11 @@
             </div>
             <p class="pt-1 mb-4">Ici, vous pouvez voir vos offres immobilières et les modifier facilement.</p>
             <!-- Nav tabs-->
-           
+            @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
             <!-- Item-->
             <!-- Basic table -->
 <div class="table-responsive">
@@ -51,14 +55,11 @@
                             <a href="{{route('contact.show',$c->id)}}" class="dropdown-item" type="button"><i
                                     class="fi-eye-on opacity-60 me-2" ></i>View</a>
                         </li>
-                        <li>
-                            <button class="dropdown-item" type="button"><i
-                                    class="fi-edit opacity-60 me-2"></i>Modifier</button>
-                        </li>
+                       
 
                         <li>
-                            <button class="dropdown-item" type="button"><i
-                                    class="fi-trash opacity-60 me-2"></i>Supprimer</button>
+                            <a class="dropdown-item" href="{{route('contact.delete',$c->id)}}"><i
+                                    class="fi-trash opacity-60 me-2"></i>Supprimer</a>
                         </li>
                     </ul>
                 

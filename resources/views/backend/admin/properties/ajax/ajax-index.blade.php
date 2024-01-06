@@ -13,8 +13,8 @@
                     data-bs-toggle="dropdown" aria-expanded="false"><i class="fi-dots-vertical"></i></button>
                 <ul class="dropdown-menu my-1" aria-labelledby="contextMenu1">
                     <li>
-                        <button class="dropdown-item" type="button"><i
-                                class="fi-edit opacity-60 me-2"></i>Modifier</button>
+                        <a href="{{route('property.edit',$p->id)}}" class="dropdown-item" type="button"><i
+                                class="fi-edit opacity-60 me-2"></i>Modifier</a>
                     </li>
 
                     <li>
