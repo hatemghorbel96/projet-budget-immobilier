@@ -5,21 +5,21 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <meta charset="utf-8">
-    <title>{{ config('app.name', 'Budget Immobilier ') }}</title>
+    <title>{{-- {{ config('app.name', 'Budget Immobilier ') }} --}}Budget Immobilier</title>
     <!-- SEO Meta Tags-->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <meta name="description" content="Finder - Directory &amp; Listings Bootstrap Template">
-    <meta name="keywords" content="bootstrap, business, directory, listings, e-commerce, car dealer, city guide, real estate, job board, user account, multipurpose, ui kit, html5, css3, javascript, gallery, slider, touch">
-    <meta name="author" content="Createx Studio">
+    <meta name="description" content="budgetimmobilier.">
+    <meta name="keywords" content="budgetimmobilier, budgetimmobilier hammamet ">
+    <meta name="author" content="dev">
     
     <!-- Viewport-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon and Touch Icons-->
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{asset('favicon-32x32.png')}}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('favicon-16x16.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('favicon-16x16.png') }}">    
     <link rel="manifest" href="site.webmanifest">
-    <link rel="mask-icon" color="#5bbad5" href="safari-pinned-tab.svg">
+    <link rel="mask-icon" color="#5bbad5" href="{{asset('safari-pinned-tab.svg')}}">
     <meta name="msapplication-TileColor" content="#766df4">
     <meta name="theme-color" content="#ffffff">
     <!-- Page loading styles-->
