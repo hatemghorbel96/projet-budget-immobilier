@@ -38,7 +38,7 @@ Route::get('/contact', [ContactController::class, 'contact'])->name('contact.sen
 Route::post('/contact/store', [ContactController::class, 'store'])->name('contact.store');
 Route::get('/contact/list', [ContactController::class, 'index'])->name('contact.index');
 Route::get('/contact/view/{id}', [ContactController::class, 'show'])->name('contact.show');
-
+Route::get('/contact/delete/{id}', [ContactController::class, 'delete'])->name('contact.delete');
 //userinfo
 Route::get('/update-profile', [ProfileController::class, 'infoperso'])->name('infoperso');
 Route::put('/save-profile', [ProfileController::class, 'updateProfile'])->name('update-profile');
@@ -103,6 +103,7 @@ Route::controller(RoleController::class)->group(function(){
     Route::post('/properties', [PropertieController::class, 'store'])->name('properties.store');
   
     Route::delete('/properties/delete', [PropertieController::class, 'deleteProperty'])->name('property.delete');
+    Route::get('/properties/edit/{id}', [PropertieController::class, 'edit'])->name('property.edit');
 
-
+    Route::put('properties/{id}', [PropertieController::class, 'update'])->name('properties.update');
 require __DIR__.'/auth.php';

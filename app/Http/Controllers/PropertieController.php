@@ -115,4 +115,62 @@ class PropertieController extends Controller
 
         return response()->json(['success' => true, 'message' => 'Property deleted successfully']);
     }
+
+    public function edit($id)
+    {
+        $property = Propertie::with('images')->findOrFail($id);
+        $locations = Location::all();
+        $bientypes = Bientype::all();
+      
+        return view('backend.admin.properties.edit', compact('property', 'locations', 'bientypes'));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+        $property = Propertie::findOrFail($id);
+       /*  $user_id = auth()->id();  */
+
+    
+        if ($request->has('delete_images')) {
+            $deletedImageIds = $request->input('delete_images');
+            ImagePropertie::whereIn('id', $deletedImageIds)->delete();
+        }
+
+    
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $newImage) {
+                $makeName = hexdec(uniqid()) . '.' . $newImage->getClientOriginalExtension();
+                Image::make($newImage)->resize(800, 800)->save('upload/multi-image/' . $makeName);
+                $uploadPath = 'upload/multi-image/' . $makeName;
+
+                ImagePropertie::create([
+                    'propertie_id' => $property->id,
+                    'path' => $uploadPath,
+                    'created_at' => now(),
+                ]);
+            }
+        }
+
+       
+        $property->update([
+            'email' => $request->input('email'),
+            'phone_number' => $request->input('phone_number'),
+            'budget' => $request->input('budget'),
+            'description' => $request->input('description'),
+            'parking' => $request->input('parking'),
+            'bathroom' => $request->input('bathroom'),
+            'rooms' => $request->input('rooms'),
+            'surface' => $request->input('surface'),
+            'codepostal' => $request->input('codepostal'),
+            'address' => $request->input('address'),
+            'location_id' => $request->input('location_id'),
+            'bientype_id' => $request->input('bientype_id'),
+            'for' => $request->input('for'),
+            'title' => $request->input('title'),
+        ]);
+
+        return redirect()->route('properties.index')->with('success', 'Property updated successfully.');
+    }
+
 }
