@@ -6,7 +6,7 @@
         <nav class="mb-3 pt-md-3" aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Acceuil</a></li>
-                <li class="breadcrumb-item"><a href="real-estate-catalog-rent.html">Property for rent</a></li>
+                <li class="breadcrumb-item"><a href="/">Property for rent</a></li>
                 <li class="breadcrumb-item active" aria-current="page">{{ $p->title }}</li>
             </ol>
         </nav>
