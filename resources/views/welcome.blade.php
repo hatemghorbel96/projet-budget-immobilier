@@ -3,7 +3,7 @@
    <section class="container pt-5 my-5 pb-lg-4">
        <div class="row pt-0 pt-md-2 pt-lg-0">
            <div class="col-xl-7 col-lg-6 col-md-5 order-md-2 mb-4 mb-lg-3"><img
-                   src="{{ asset('background-acceuil.png') }}" alt="Hero image"></div>
+                   src="{{ asset('background-acceuil.png') }}" loading="lazy" alt="Hero image"></div>
            <div class="col-xl-5 col-lg-6 col-md-7 order-md-1 pt-xl-5 pe-lg-0 mb-3 text-md-start text-center">
                <h1 class="display-4 mt-lg-5 mb-md-4 mb-3 pt-md-4 pb-lg-2">Trouver facilement <br> les biens parfaits.
                </h1>
@@ -253,7 +253,7 @@
                            <div class="card-img-top card-img-hover">
                                <span class="img-overlay opacity-65"></span>
                                <img src="{{ asset('front/assets/img/real-estate/city/new-york.jpg') }}"
-                                   alt="New York">
+                                   alt="New York" loading="lazy">
                                <div
                                    class="content-overlay start-0 top-0 d-flex align-items-center justify-content-center w-100 h-100 p-3">
                                    <div class="w-100 p-1">
