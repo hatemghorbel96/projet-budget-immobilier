@@ -76,8 +76,12 @@
         <!-- Item-->
         <div class="col-md-4"><a class="icon-box card card-hover h-100" >
                 <div class="card-body">
-                    <div class="icon-box-media text-primary rounded-circle shadow-sm mb-3"><i class="fi-device-mobile me-2 mt-3"></i></div><span class="d-block mb-1 text-body">Appelez-nous à tout moment</span>
-                    <h3 class="h6 icon-box-title mb-0 opacity-90">(216) 27 300 446</h3>
+                    <div class="icon-box-media text-primary rounded-circle shadow-sm mb-3 d-flex justify-content-center align-items-center">
+                        <i class="fi-device-mobile me-2 mt-3"></i>
+                    </div>
+                    
+                    <span class="d-block mb-1 text-body">Appelez-nous à tout moment</span>
+                    <h3 class="h6 icon-box-title mb-0 opacity-90">(+216) 27 300 446</h3>
                 </div></a></div>
         <!-- Item-->
         <div class="col-md-4"><a class="icon-box card card-hover h-100" href="https://www.facebook.com/profile.php?id=100076515694659">
